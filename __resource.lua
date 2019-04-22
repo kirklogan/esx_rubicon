@@ -5,8 +5,7 @@ ui_page 'html/index.html'
 
 client_scripts {
 	'client/killingerr-test.lua',
-    'client/client.lua',
-	'client/client2.lua'
+    'client/client.lua'
 } 
 
 server_scripts {
