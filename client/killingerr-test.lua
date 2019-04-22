@@ -2,25 +2,13 @@ local display = false
 
 RegisterCommand("on", function()
     Citizen.CreateThread(function()
-        TriggerEvent("nui:on", true)
-		
-		TriggerEvent('chat:addMessage', {
-		  color = { 255, 0, 0},
-		  multiline = false,
-		  args = {"[System]", "Turning NUI On"}
-		})
+        TriggerEvent("nui:on", 'On')
     end)
 end, false)
 
 RegisterCommand("off", function()
     Citizen.CreateThread(function()
-        TriggerEvent("nui:off", true)
-		
-		TriggerEvent('chat:addMessage', {
-		  color = { 255, 0, 0},
-		  multiline = false,
-		  args = {"[System]", "Turning NUI Off"}
-		})
+        TriggerEvent("nui:off", 'Off')
     end)
 end, false)
 
@@ -34,6 +22,12 @@ AddEventHandler("nui:on", function(value)
         type = "ui",
         display = true
     })
+	
+	TriggerEvent('chat:addMessage', {
+	  color = { 255, 0, 0},
+	  multiline = false,
+	  args = {"[System]", "Turning NUI " .. value}
+	})
 end)
 
 AddEventHandler("nui:off", function(value)
@@ -41,4 +35,10 @@ AddEventHandler("nui:off", function(value)
         type = "ui",
         display = false
     })
+	
+	TriggerEvent('chat:addMessage', {
+	  color = { 255, 0, 0},
+	  multiline = false,
+	  args = {"[System]", "Turning NUI " .. value}
+	})
 end)
