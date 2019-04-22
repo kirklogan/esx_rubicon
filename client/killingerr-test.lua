@@ -2,13 +2,13 @@ local display = false
 
 RegisterCommand("on", function()
     Citizen.CreateThread(function()
-        TriggerEvent("nui:on", 'On')
+        TriggerEvent("nui:on", 'ON')
     end)
 end, false)
 
 RegisterCommand("off", function()
     Citizen.CreateThread(function()
-        TriggerEvent("nui:off", 'Off')
+        TriggerEvent("nui:off", 'OFF')
     end)
 end, false)
 
