@@ -1,3 +1,5 @@
+local display = false
+
 RegisterCommand("help", function(source, args)
     TriggerEvent('chat:addMessage', {
 	  color = { 255, 0, 0},
