@@ -4,8 +4,9 @@ description 'Rubicon Custom Scripts'
 ui_page 'html/index.html'
 
 client_scripts {
+	'client/killingerr-test.lua',
     'client/client.lua',
-    'client/killingerr-test.lua'
+	'client/client2.lua'
 } 
 
 server_scripts {
