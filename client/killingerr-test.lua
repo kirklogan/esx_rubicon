@@ -24,3 +24,17 @@ end, false)
 
 RegisterNetEvent("nui:on")
 RegisterNetEvent("nui:off")
+
+AddEventHandler("nui:on", function(value)
+    SendNUIMessage({
+        type = "ui"
+        display = true
+    })
+end)
+
+AddEventHandler("nui:off", function(value)
+    SendNUIMessage({
+        type = "ui"
+        display = false
+    })
+end)
