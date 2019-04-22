@@ -19,3 +19,8 @@ RegisterCommand("off", function()
         TriggerEvent("nui:off", true)
     end)
 end, false)
+
+--//////////////////////////////////////////--
+
+RegisterNetEvent("nui:on")
+RegisterNetEvent("nui:off")
