@@ -1,15 +1,11 @@
-$(() => {
-	window.onload = (e) => {
-		window.addEventListener('message', (event) => {
-			var item = event.data;
-			
-			if (item !== undefined && item.type === "ui") {
-				if (item.display === true) {
-                    $("#container").show();
-				} else{
-                    $("#container").hide();
-                }
-			}
-		});
-	};
+$(window).ready(function () {
+	window.addEventListener('message', function (event) {
+		var data = event.data;
+
+		if (data.showDialog) {
+			$("#container").show();
+		} else {
+			$("#container").hide();
+		}
+	});
 });

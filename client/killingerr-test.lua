@@ -1,4 +1,4 @@
-local display = false
+local showDialog = false
 
 RegisterCommand("on", function()
     Citizen.CreateThread(function()
@@ -19,8 +19,7 @@ RegisterNetEvent("nui:off")
 
 AddEventHandler("nui:on", function(value)
     SendNUIMessage({
-        type = "ui",
-        display = true
+        showDialog = true
     })
 	
 	TriggerEvent('chat:addMessage', {
@@ -32,8 +31,7 @@ end)
 
 AddEventHandler("nui:off", function(value)
     SendNUIMessage({
-        type = "ui",
-        display = false
+        showDialog = false
     })
 	
 	TriggerEvent('chat:addMessage', {
