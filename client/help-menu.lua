@@ -2,15 +2,13 @@ local showDialog = false
 
 RegisterCommand("helpOn", function()
     Citizen.CreateThread(function()
-        showDialog = on
-		TriggerEvent("helpMenu:on")
-    end)
-end, false)
-
-RegisterCommand("helpOff", function()
-    Citizen.CreateThread(function()
-        showDialog = off
-		TriggerEvent("helpMenu:off")
+        if showDialog then
+			showDialog = off
+			TriggerEvent("helpMenu:off")
+		else
+			showDialog = on
+			TriggerEvent("helpMenu:on")
+		end
     end)
 end, false)
 
