@@ -3,11 +3,11 @@ $(window).ready(function () {
 		var data = event.data;
 
 		if (data.showDialog) {
-			$("#container").show();
+			$("#helpMenu").show();
 		} else {
-			$("#container").hide();
+			$("#helpMenu").hide();
 		}
 	});
 	
-	$("#container").hide();
+	$("#helpMenu").hide();
 });
