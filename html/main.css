@@ -1,7 +1,13 @@
+#cursor {
+	position: absolute;
+	z-index: 999999;
+	display: none;
+}
+
 #helpMenu {
 	position: absolute;
 	width: 350px;
 	bottom: 20px;
 	right: 20px;
-	cursor: pointer;
+	cursor: default;
 }
