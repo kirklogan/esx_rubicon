@@ -1,3 +1,4 @@
+ESX              = nil
 local showDialog = false
 
 RegisterCommand("help", function()
@@ -22,6 +23,10 @@ AddEventHandler("helpMenu:on", function(value)
     SendNUIMessage({
         showDialog = true
     })
+	
+	ESX.SetTimeout(15000, function()
+		SetNuiFocus(false)
+	end)
 end)
 
 AddEventHandler("helpMenu:off", function(value)
