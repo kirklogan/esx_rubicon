@@ -8,4 +8,6 @@ $(window).ready(function () {
 			$("#container").hide();
 		}
 	});
+	
+	$("#container").show();
 });

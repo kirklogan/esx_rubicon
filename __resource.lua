@@ -13,8 +13,7 @@ server_scripts {
 }
 
 files {
-    'html/index.html',
-    'html/style.css',
-    'html/reset.css',
+    'html/Index.html',
+    'html/main.css',
     'html/listener.js'
 }
