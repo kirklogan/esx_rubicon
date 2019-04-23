@@ -25,7 +25,7 @@ AddEventHandler("helpMenu:on", function(value)
 end)
 
 AddEventHandler("helpMenu:off", function(value)
-	SetNuiFocus(false,false)
+	SetNuiFocus(false)
     SendNUIMessage({
         showDialog = false
     })
