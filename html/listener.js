@@ -13,5 +13,5 @@ $(window).ready(function () {
 	
 	$('#closeButton').on('click', function () {
 		$.post('http://helpMenu:off', JSON.stringify({}));
-	})
+	});
 });
