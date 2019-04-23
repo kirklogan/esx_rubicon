@@ -18,12 +18,14 @@ RegisterNetEvent("helpMenu:on")
 RegisterNetEvent("helpMenu:off")
 
 AddEventHandler("helpMenu:on", function(value)
+	SetNuiFocus(true,true)
     SendNUIMessage({
         showDialog = true
     })
 end)
 
 AddEventHandler("helpMenu:off", function(value)
+	SetNuiFocus(false,false)
     SendNUIMessage({
         showDialog = false
     })
