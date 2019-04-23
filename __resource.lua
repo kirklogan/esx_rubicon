@@ -15,5 +15,6 @@ server_scripts {
 files {
     'html/index.html',
     'html/main.css',
+	'html/spectre.min.css',
     'html/listener.js'
 }
