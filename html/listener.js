@@ -1,4 +1,6 @@
 $(window).ready(function () {
+	$("#helpMenu").hide();
+	
 	window.addEventListener('message', function (event) {
 		var data = event.data;
 
@@ -9,9 +11,9 @@ $(window).ready(function () {
 		}
 	});
 	
-	$("#helpMenu").hide();
-	
-	$('#closeButton').on('click', function () {
-		$.post('http://helpMenu/off', JSON.stringify({}));
-	});
+	document.onkeyup = function (data) {
+		if (data.which == 27) {
+			$.post('http://esx_rubicon/escape', '{}');
+		}
+	};
 });

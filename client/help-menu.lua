@@ -23,10 +23,6 @@ AddEventHandler("helpMenu:on", function(value)
     SendNUIMessage({
         showDialog = true
     })
-	
-	ESX.SetTimeout(15000, function()
-		SetNuiFocus(false)
-	end)
 end)
 
 AddEventHandler("helpMenu:off", function(value)
@@ -34,4 +30,9 @@ AddEventHandler("helpMenu:off", function(value)
     SendNUIMessage({
         showDialog = false
     })
+end)
+
+RegisterNUICallback('escape', function(data, cb)
+	TriggerEvent('helpMenu:off')
+	cb('ok')
 end)
