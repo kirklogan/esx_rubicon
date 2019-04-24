@@ -16,4 +16,8 @@ $(window).ready(function () {
 			$.post('http://esx_rubicon/escape', '{}');
 		}
 	};
+	
+	$('#closeButton').on('click', function () {
+		$.post('http://esx_rubicon/escape', '{}');
+	})
 });
