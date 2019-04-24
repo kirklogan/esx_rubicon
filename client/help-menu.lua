@@ -30,7 +30,7 @@ AddEventHandler("helpMenu:on", function(value)
 	showDialog = true
     SendNUIMessage({
         showDialog = true,
-		money = ESX.PlayerData.money
+		money = ESX.GetPlayerData().money
     })
 end)
 

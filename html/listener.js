@@ -5,7 +5,7 @@ $(window).ready(function () {
 		var data = event.data;
 
 		if (data.showDialog) {
-			$("#money").html(data.money);
+			$("#money").html("TEST" + data.money);
 			$("#helpMenu").show();
 		} else {
 			$("#helpMenu").hide();
