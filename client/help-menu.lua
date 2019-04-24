@@ -1,5 +1,5 @@
 ESX              = nil
-local PlayerData = nil;
+ESX.PlayerData   = nil;
 local anotherPlayerInventory = false
 local showDialog = false
 
@@ -9,9 +9,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
     end
 	
-	while true do
-        PlayerData = ESX.GetPlayerData()
-    end
+	ESX.PlayerData = ESX.GetPlayerData()
 end)
 
 RegisterCommand("help", function()
@@ -34,7 +32,7 @@ AddEventHandler("helpMenu:on", function(value)
 	showDialog = true
     SendNUIMessage({
         showDialog = true,
-		money = PlayerData["money"]
+		money = ESX.PlayerData["money"]
     })
 end)
 
