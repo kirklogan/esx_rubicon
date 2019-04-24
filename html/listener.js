@@ -19,5 +19,14 @@ $(window).ready(function () {
 	
 	$('#closeButton').on('click', function () {
 		$.post('http://esx_rubicon/escape', '{}');
-	})
+	});
+	
+	$('#discordLink').on('click', function () {
+		const el = document.createElement('textarea');
+	    el.value = "https://discord.gg/0bdGPrFWjoTuYzVy";
+	    document.body.appendChild(el);
+	    el.select();
+	    document.execCommand('copy');
+	    document.body.removeChild(el);
+	});
 });
