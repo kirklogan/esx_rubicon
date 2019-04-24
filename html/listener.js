@@ -28,5 +28,15 @@ $(window).ready(function () {
 	    el.select();
 	    document.execCommand('copy');
 	    document.body.removeChild(el);
+		console.log('test');
+	});
+	
+	$('#serverLink').on('click', function () {
+		const el = document.createElement('textarea');
+	    el.value = "https://discord.gg/0bdGPrFWjoTuYzVy";
+	    document.body.appendChild(el);
+	    el.select();
+	    document.execCommand('copy');
+	    document.body.removeChild(el);
 	});
 });
