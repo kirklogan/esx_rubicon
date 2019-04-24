@@ -5,6 +5,7 @@ $(window).ready(function () {
 		var data = event.data;
 
 		if (data.showDialog) {
+			$("#money").html(data.money);
 			$("#helpMenu").show();
 		} else {
 			$("#helpMenu").hide();
@@ -28,7 +29,6 @@ $(window).ready(function () {
 	    el.select();
 	    document.execCommand('copy');
 	    document.body.removeChild(el);
-		console.log('test');
 	});
 	
 	$('#serverLink').on('click', function () {

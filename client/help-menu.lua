@@ -1,6 +1,15 @@
 ESX              = nil
 local showDialog = false
 
+Citizen.CreateThread(function()
+	while ESX == nil do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Citizen.Wait(0)
+	end
+
+	ESX.PlayerData = ESX.GetPlayerData()
+end)
+
 RegisterCommand("help", function()
     Citizen.CreateThread(function()
         if showDialog == true then
@@ -20,7 +29,8 @@ AddEventHandler("helpMenu:on", function(value)
 	SetNuiFocus(true,true)
 	showDialog = true
     SendNUIMessage({
-        showDialog = true
+        showDialog = true,
+		money = ESX.PlayerData.money
     })
 end)
 
