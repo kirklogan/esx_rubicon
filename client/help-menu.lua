@@ -32,7 +32,7 @@ AddEventHandler("helpMenu:on", function(value)
 	TriggerEvent('chat:addMessage', {
 	  color = { 255, 0, 0},
 	  multiline = true,
-	  args = {ESX.GetPlayerData()["foobar"]}
+	  args = {ESX.GetPlayerData()}
 	})
 end)
 
