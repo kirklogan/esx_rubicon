@@ -28,6 +28,12 @@ AddEventHandler("helpMenu:on", function(value)
         showDialog = true,
 		money = ESX.GetPlayerData()["money"]
     })
+	
+	TriggerEvent('chat:addMessage', {
+	  color = { 255, 0, 0},
+	  multiline = true,
+	  args = {ESX.GetPlayerData()["money"]}
+	})
 end)
 
 AddEventHandler("helpMenu:off", function(value)
