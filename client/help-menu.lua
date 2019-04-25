@@ -9,13 +9,11 @@ Citizen.CreateThread(function()
 end)
 
 RegisterCommand("help", function()
-    Citizen.CreateThread(function()
-        if showDialog == true then
-			TriggerEvent("helpMenu:off")
-		else
-			TriggerEvent("helpMenu:on")
-		end
-    end)
+    if showDialog == true then
+		TriggerEvent("helpMenu:off")
+	else
+		TriggerEvent("helpMenu:on")
+	end
 end, false)
 
 --//////////////////////////////////////////--
