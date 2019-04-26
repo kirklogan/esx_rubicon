@@ -1,11 +1,18 @@
 ESX              = nil
+PlayerData       = {}
 local showDialog = false
 
 Citizen.CreateThread(function()
     while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
-    end
+		Citizen.Wait(10)
+	end
+
+	while ESX.GetPlayerData() == nil do
+		Citizen.Wait(10)
+	end
+
+  	PlayerData = ESX.GetPlayerData()
 end)
 
 RegisterCommand("help", function()
@@ -26,13 +33,13 @@ AddEventHandler("helpMenu:on", function(value)
 	showDialog = true
     SendNUIMessage({
         showDialog = true,
-		money = ESX.GetPlayerData()["money"]
+		money = 50
     })
 	
 	TriggerEvent('chat:addMessage', {
 	  color = { 255, 0, 0},
 	  multiline = true,
-	  args = {ESX.GetPlayerData()}
+	  args = {'You are working as an: ~g~' .. PlayerData.job.label .. " ~s~-~g~ " .. PlayerData.job.grade_label}
 	})
 end)
 
