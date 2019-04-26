@@ -1,8 +1,19 @@
-local inspect = require 'inspect'
-
 ESX              = nil
 PlayerData       = {}
 local showDialog = false
+
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
 
 Citizen.CreateThread(function()
     while ESX == nil do
@@ -43,7 +54,7 @@ AddEventHandler("helpMenu:on", function(value)
 	TriggerEvent('chat:addMessage', {
 	  color = { 255, 0, 0},
 	  multiline = true,
-	  args = {PlayerData.accounts}
+	  args = {dump(PlayerData.accounts)}
 	})
 end)
 
