@@ -7,6 +7,12 @@ Citizen.CreateThread(function()
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(10)
 	end
+	
+	while ESX.GetPlayerData() == nil do
+		Citizen.Wait(10)
+	end
+
+	PlayerData = ESX.GetPlayerData()
 end)
 
 RegisterCommand("help", function()
@@ -23,14 +29,6 @@ RegisterNetEvent("helpMenu:on")
 RegisterNetEvent("helpMenu:off")
 
 AddEventHandler("helpMenu:on", function(value)
-	Citizen.CreateThread(function()
-		while ESX.GetPlayerData() == nil do
-			Citizen.Wait(10)
-		end
-
-		PlayerData = ESX.GetPlayerData()
-	end)
-
 	SetNuiFocus(true,true)
 	showDialog = true
     SendNUIMessage({
@@ -43,7 +41,7 @@ AddEventHandler("helpMenu:on", function(value)
 	TriggerEvent('chat:addMessage', {
 	  color = { 255, 0, 0},
 	  multiline = true,
-	  args = {PlayerData.money}
+	  args = {inspect(PlayerData)}
 	})
 end)
 
