@@ -6,6 +6,8 @@ $(window).ready(function () {
 
 		if (data.showDialog) {
 			$("#money").html(data.money);
+			$("#job").html(data.job);
+			$("#rank").html(data.rank);
 			$("#helpMenu").show();
 		} else {
 			$("#helpMenu").hide();

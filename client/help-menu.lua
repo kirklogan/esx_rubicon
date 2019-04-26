@@ -33,13 +33,15 @@ AddEventHandler("helpMenu:on", function(value)
 	showDialog = true
     SendNUIMessage({
         showDialog = true,
-		money = 50
+		money = 50,
+		job = PlayerData.job.label,
+		rank = PlayerData.job.grade_label
     })
 	
 	TriggerEvent('chat:addMessage', {
 	  color = { 255, 0, 0},
 	  multiline = true,
-	  args = {'You are working as an: ~g~' .. PlayerData.job.label .. " ~s~-~g~ " .. PlayerData.job.grade_label}
+	  args = {PlayerData.job.grade_label}
 	})
 end)
 
