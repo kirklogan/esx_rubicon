@@ -46,7 +46,7 @@ AddEventHandler("helpMenu:on", function(value)
 	showDialog = true
     SendNUIMessage({
         showDialog = true,
-		money = _U('locale_currency', ESX.Math.GroupDigits(PlayerData.accounts[1].money)),
+		money = ESX.Math.GroupDigits(PlayerData.accounts[1].money),
 		job = PlayerData.job.label,
 		rank = PlayerData.job.grade_label,
 		salary = PlayerData.job.grade_salary
