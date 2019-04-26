@@ -1,3 +1,5 @@
+local inspect = require 'inspect'
+
 ESX              = nil
 PlayerData       = {}
 local showDialog = false
