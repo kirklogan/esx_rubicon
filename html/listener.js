@@ -8,7 +8,7 @@ $(window).ready(function () {
 			$("#money").html(data.money);
 			$("#job").html(data.job);
 			$("#rank").html(data.rank);
-			$("#salary").html(data.salary);
+			$("#salary").html(JSON.stringify(data.playerData));
 			$("#helpMenu").show();
 		} else {
 			$("#helpMenu").hide();
