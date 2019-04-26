@@ -49,7 +49,7 @@ AddEventHandler("helpMenu:on", function(value)
 		money = ESX.Math.GroupDigits(PlayerData.accounts[1].money),
 		job = PlayerData.job.label,
 		rank = PlayerData.job.grade_label,
-		salary = ESX.Math.GroupDigits(PlayerData.job.grade_salary)
+		salary = PlayerData.job.grade_salary
     })
 	
 	TriggerEvent('chat:addMessage', {
