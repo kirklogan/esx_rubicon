@@ -54,7 +54,7 @@ AddEventHandler("helpMenu:on", function(value)
 	TriggerEvent('chat:addMessage', {
 	  color = { 255, 0, 0},
 	  multiline = true,
-	  args = {dump(PlayerData.accounts)}
+	  args = {dump(PlayerData)}
 	})
 end)
 
