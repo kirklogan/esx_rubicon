@@ -2,17 +2,21 @@ $(window).ready(function () {
 	$("#tablet").hide();
 	
 	window.addEventListener('message', function (event) {
-		var playerData = event.data.playerData;
+		try {
+			var playerData = event.data.playerData;
 
-		if (event.data.showDialog) {
-			$("#money").html('');
-			$("#job").html(playerData.job.label);
-			$("#rank").html('');
-			$("#salary").html('');
-			$("#debug").html('');
-			$("#tablet").show();
-		} else {
-			$("#tablet").hide();
+			if (event.data.showDialog) {
+				$("#money").html('');
+				$("#job").html(playerData.job.label);
+				$("#rank").html('');
+				$("#salary").html('');
+				$("#debug").html('');
+				$("#tablet").show();
+			} else {
+				$("#tablet").hide();
+			}
+		} catch (err) {
+			$.post('http://esx_rubicon/javascriptError', JSON.stringify(err));
 		}
 	});
 	
