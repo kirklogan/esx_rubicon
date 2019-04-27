@@ -1,5 +1,5 @@
 $(window).ready(function () {
-	$("#tablet").show();
+	$("#tablet").false();
 	
 	window.addEventListener('message', function (event) {
 		var playerData = event.data.playerData;
@@ -9,7 +9,7 @@ $(window).ready(function () {
 			$("#job").html(playerData.job.label);
 			$("#rank").html('');
 			$("#salary").html('');
-			$("#debug").html(JSON.stringify(playerData));
+			$("#debug").html(JSON.stringify(playerData, null, 2));
 			$("#tablet").show();
 		} else {
 			$("#tablet").hide();
