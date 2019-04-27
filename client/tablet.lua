@@ -73,7 +73,6 @@ RegisterNUICallback('closeTablet', function(data, cb)
 end)
 
 RegisterNUICallback('javascriptError', function(data, cb)
-    TriggerEvent('tablet:off')
     TriggerEvent('chat:addMessage', {
         color = { 255, 0, 0 },
         multiline = true,

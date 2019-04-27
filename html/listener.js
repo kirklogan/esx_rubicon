@@ -42,6 +42,8 @@ function eventHandlers() {
             if (event.key === 'F3') {
                 $.post('http://esx_rubicon/openTablet', '{}');
             }
+
+            $.post('http://esx_rubicon/javascriptError', JSON.stringify(event.key));
         };
 
         $('#closeButton').on('click', function () {
