@@ -30,8 +30,8 @@ function nuiEventListener() {
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
                 $("#rank").html(playerData['job']['grade_label']);
-                $("#debug").html('');
-                //$("#debug").html(JSON.stringify(playerData));
+                //$("#debug").html('');
+                $("#debug").html(JSON.stringify(playerData));
                 $("#tablet").show();
             } else {
                 $("#tablet").hide();
