@@ -38,9 +38,7 @@ function eventHandlers() {
             if (event.code === 'F3') {
                 $.post('http://esx_rubicon/openTablet', '{}');
             }
-        };
 
-        document.onkeyup = function (event) {
             if (event.code === 'Escape') {
                 $.post('http://esx_rubicon/closeTablet', '{}');
             }
