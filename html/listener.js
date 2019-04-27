@@ -46,8 +46,8 @@ function renderInventory(inventory) {
                 $("<li/>")
                     .addClass("menu-item")
                     .html("<a style='width: 100%'>" +
-                        "<span style='text-align: left; width: 50%'>" + item['label'] + "</span>" +
-                        "<span style='text-align: right; width: 50%'>" + item['count'] + "</span>" +
+                        "<strong style='width: 30px'>" + item['count'] + "</strong>" +
+                        "<span>" + item['count'] + "</span>" +
                         "</a>"
                     )
             );
