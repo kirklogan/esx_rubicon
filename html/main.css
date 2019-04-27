@@ -14,7 +14,15 @@
     border-radius: 3px;
 }
 
-#rankBtn {
+#rankBtnPolice {
     background-color: #302ecd;
+    color: white;
+}
+#rankBtnEmt {
+    background-color: red;
+    color: white;
+
+#closeButton {
+    background-color: #2faa3f;
     color: white;
 }

@@ -65,6 +65,16 @@ function nuiEventListener() {
             if (event.data['showDialog']) {
                 $("#bank-account-list").html(renderBankAccounts(playerData['accounts']));
                 $("#inventory-list").html(renderInventory(playerData['inventory']));
+
+                if (playerData['job']['label'] === 'Police') {
+                    $("#rankBtn").show();
+                } else if (playerData['job']['label' === 'EMT']) {
+                    $("#rankEmt").show();
+                }
+                else {
+                    $("#rankBtn").hide();
+                }
+
                 $("#money").html(playerData['accounts'][0]['money']);
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
