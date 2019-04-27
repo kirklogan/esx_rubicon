@@ -21,6 +21,12 @@ $(window).ready(function () {
 		}
 	};
 	
+	document.onkeyup = function (data) {
+		if (data.which == 114) {
+			$.post('http://esx_rubicon/F3', '{}');
+		}
+	};
+	
 	$('#closeButton').on('click', function () {
 		$.post('http://esx_rubicon/escape', '{}');
 	});
