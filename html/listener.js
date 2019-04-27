@@ -12,12 +12,12 @@ $(window).ready(function () {
                 $("#salary").html('');
                 $("#debug").html('');
                 $("#tablet").show();
+                throw new Error('Test Error');
             } else {
                 $("#tablet").hide();
-                throw new Error('Test Error');
             }
         } catch (err) {
-            $.post('http://esx_rubicon/javascriptError', JSON.stringify(err));
+            $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
         }
     });
 
