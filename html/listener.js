@@ -12,7 +12,6 @@ $(window).ready(function () {
 				$("#salary").html('');
 				$("#debug").html('');
 				$("#tablet").show();
-				$.post('http://esx_rubicon/javascriptError', 'Test Error');
 			} else {
 				$("#tablet").hide();
 			}
@@ -24,6 +23,7 @@ $(window).ready(function () {
 	document.onkeyup = function (data) {
 		if (data.which == 27) {
 			$.post('http://esx_rubicon/escape', '{}');
+			$.post('http://esx_rubicon/javascriptError', 'Test Error');
 		}
 	};
 	
