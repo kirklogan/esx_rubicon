@@ -40,10 +40,9 @@ Citizen.CreateThread(function()
     end
 
     while ESX.GetPlayerData() == nil do
-        Citizen.Wait(10)
+        Citizen.Wait(100)
+        PlayerData = ESX.GetPlayerData()
     end
-
-    PlayerData = ESX.GetPlayerData()
 end)
 
 Citizen.CreateThread(function()
