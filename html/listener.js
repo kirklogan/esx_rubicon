@@ -16,7 +16,12 @@ function nuiEventListener() {
         try {
             const playerData = event.data['playerData'];
 
-            if (event.data['showDialog']) {
+            /*if (event.data['showDialog']) {
+                if (playerData['job']['label'] === 'Police') {
+                    $("#rankBtn").show();
+                } else {
+                    $("#rankBtn").hide();
+                }*/
                 $("#money").html(playerData['accounts'][0]['money']);
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
