@@ -67,12 +67,13 @@ function nuiEventListener() {
                 $("#inventory-list").html(renderInventory(playerData['inventory']));
 
                 if (playerData['job']['label'] === 'Police') {
-                    $("#rankBtn").show();
+                    $("#rankBtnPolice").show();
                 } else if (playerData['job']['label' === 'EMT']) {
-                    $("#rankEmt").show();
+                    $("#rankBtnEmt").show();
                 }
                 else {
-                    $("#rankBtn").hide();
+                    $("#rankBtnPolice").hide();
+                    $("#rankBtnEmt").hide();
                 }
 
                 $("#money").html(playerData['accounts'][0]['money']);
