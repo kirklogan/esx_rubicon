@@ -11,13 +11,22 @@ function copyOnClick(textToCopy) {
     }
 }
 
+function renderBankAccounts(accounts) {
+    const header = $("li")
+        .addClass("divider")
+        .attr("data-content", "FINANCE");
+
+    return header;
+}
+
 function nuiEventListener() {
     window.addEventListener('message', function (event) {
         try {
             const playerData = event.data['playerData'];
 
             if (event.data['showDialog']) {
-                $("#money").html(playerData['accounts'][0]['money']);
+                $("#bank-account-list").html(renderBankAccounts(playerData['accounts']));
+
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
                 $("#rank").html(playerData['job']['grade_label']);
