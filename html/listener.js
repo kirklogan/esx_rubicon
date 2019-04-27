@@ -71,7 +71,6 @@ function nuiEventListener() {
 
                 if (playerData['job']['label'] === 'Police') {
                     $("#rankBtnPolice").show();
-                    $("#rankBtnEmt").hide();
                 } else if (playerData['job']['label'] === 'EMS') {
                     $("#rankBtnEmt").show();
                 }
