@@ -67,6 +67,11 @@ RegisterNUICallback('escape', function(data, cb)
     cb('ok')
 end)
 
+RegisterNUICallback('f3', function(data, cb)
+    TriggerEvent('tablet:on')
+    cb('ok')
+end)
+
 RegisterNUICallback('javascriptError', function(data, cb)
     TriggerEvent('tablet:off')
     TriggerEvent('chat:addMessage', {

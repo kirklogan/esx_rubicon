@@ -35,6 +35,12 @@ function nuiEventListener() {
 function eventHandlers() {
     try {
         document.onkeyup = function (event) {
+            if (event.code === 'F3') {
+                $.post('http://esx_rubicon/f3', '{}');
+            }
+        };
+
+        document.onkeyup = function (event) {
             if (event.code === 'Escape') {
                 $.post('http://esx_rubicon/escape', '{}');
             }
