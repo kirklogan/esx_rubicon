@@ -48,7 +48,11 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         if IsControlJustReleased(0, Keys['F3']) then
-            TriggerEvent('tablet:on')
+            if showDialog then
+                TriggerEvent('tablet:off')
+            else
+                TriggerEvent('tablet:on')
+            end
         end
     end
 end)
