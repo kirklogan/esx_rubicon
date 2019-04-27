@@ -11,7 +11,7 @@ local Keys = {
 }
 
 ESX = nil
-PlayerData = nil
+PlayerData = {}
 local showDialog = false
 
 --//////////DEBUG FUNCTION//////////--
@@ -39,10 +39,11 @@ Citizen.CreateThread(function()
         Citizen.Wait(10)
     end
 
-    while true do
-        PlayerData = ESX.GetPlayerData()
-        Citizen.Wait(1000)
+    while ESX.GetPlayerData() == nil do
+        Citizen.Wait(10)
     end
+
+    PlayerData = ESX.GetPlayerData()
 end)
 
 Citizen.CreateThread(function()
@@ -72,6 +73,7 @@ RegisterNetEvent("tablet:on")
 RegisterNetEvent("tablet:off")
 
 AddEventHandler("tablet:on", function(value)
+    PlayerData = ESX.GetPlayerData()
     SetNuiFocus(true, true)
     showDialog = true
     SendNUIMessage({
