@@ -45,7 +45,7 @@ function renderInventory(inventory) {
             listItems.push(
                 $("<li/>")
                     .addClass("menu-item")
-                    .html("<span class='badge' data-badge='" + item['count'] + "'>" + item['label'] + "</span>")
+                    .html("<a><span class='badge' data-badge='" + item['count'] + "'>" + item['label'] + "  </span></a>")
             );
         }
     }
