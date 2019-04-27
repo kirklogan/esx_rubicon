@@ -35,7 +35,7 @@ end)
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
-        if IsControlJustReleased(0, Keys['F1']) and GetLastInputMethod(2) then
+        if IsControlJustReleased(0, Keys['F3']) and GetLastInputMethod(2) then
             if not showDialog then
                 TriggerEvent('tablet:on')
             else
