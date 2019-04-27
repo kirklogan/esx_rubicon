@@ -13,6 +13,7 @@ local Keys = {
 ESX = nil
 PlayerData = nil
 local showDialog = false
+SetNuiFocus(false)
 
 --//////////DEBUG FUNCTION//////////--
 function dump(o)
@@ -32,6 +33,8 @@ end
 
 --//////////THREADS//////////--
 Citizen.CreateThread(function()
+    SetNuiFocus(false)
+
     while ESX == nil do
         TriggerEvent('esx:getSharedObject', function(obj)
             ESX = obj
