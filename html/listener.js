@@ -5,10 +5,10 @@ $(window).ready(function () {
 		var playerData = event.data.playerData;
 
 		if (event.data.showDialog) {
-			$("#money").html(playerData.accounts[0].money);
+			$("#money").html('');
 			$("#job").html(playerData.job.label);
-			$("#rank").html(playerData.job.grade_label);
-			$("#salary").html(playerData.job.grade_salary);
+			$("#rank").html('');
+			$("#salary").html('');
 			$("#tablet").show();
 		} else {
 			$("#tablet").hide();
