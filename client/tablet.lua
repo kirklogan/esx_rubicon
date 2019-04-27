@@ -1,74 +1,110 @@
-ESX              = nil
-PlayerData       = {}
+local Keys = {
+    ["ESC"] = 322, ["F1"] = 288, ["F2"] = 289, ["F3"] = 170, ["F5"] = 166, ["F6"] = 167, ["F7"] = 168, ["F8"] = 169, ["F9"] = 56, ["F10"] = 57,
+    ["~"] = 243, ["1"] = 157, ["2"] = 158, ["3"] = 160, ["4"] = 164, ["5"] = 165, ["6"] = 159, ["7"] = 161, ["8"] = 162, ["9"] = 163, ["-"] = 84, ["="] = 83, ["BACKSPACE"] = 177,
+    ["TAB"] = 37, ["Q"] = 44, ["W"] = 32, ["E"] = 38, ["R"] = 45, ["T"] = 245, ["Y"] = 246, ["U"] = 303, ["P"] = 199, ["["] = 39, ["]"] = 40, ["ENTER"] = 18,
+    ["CAPS"] = 137, ["A"] = 34, ["S"] = 8, ["D"] = 9, ["F"] = 23, ["G"] = 47, ["H"] = 74, ["K"] = 311, ["L"] = 182,
+    ["LEFTSHIFT"] = 21, ["Z"] = 20, ["X"] = 73, ["C"] = 26, ["V"] = 0, ["B"] = 29, ["N"] = 249, ["M"] = 244, [","] = 82, ["."] = 81,
+    ["LEFTCTRL"] = 36, ["LEFTALT"] = 19, ["SPACE"] = 22, ["RIGHTCTRL"] = 70,
+    ["HOME"] = 213, ["PAGEUP"] = 10, ["PAGEDOWN"] = 11, ["DELETE"] = 178,
+    ["LEFT"] = 174, ["RIGHT"] = 175, ["TOP"] = 27, ["DOWN"] = 173,
+    ["NENTER"] = 201, ["N4"] = 108, ["N5"] = 60, ["N6"] = 107, ["N+"] = 96, ["N-"] = 97, ["N7"] = 117, ["N8"] = 61, ["N9"] = 118
+}
+
+ESX = nil
+PlayerData = {}
 local showDialog = false
 
+--//////////DEBUG FUNCTION//////////--
 function dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
+    if type(o) == 'table' then
+        local s = '{ '
+        for k, v in pairs(o) do
+            if type(k) ~= 'number' then
+                k = '"' .. k .. '"'
+            end
+            s = s .. '[' .. k .. '] = ' .. dump(v) .. ','
+        end
+        return s .. '} '
+    else
+        return tostring(o)
+    end
 end
 
+--//////////THREADS//////////--
 Citizen.CreateThread(function()
     while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(10)
-	end
-	
-	while ESX.GetPlayerData() == nil do
-		Citizen.Wait(10)
-	end
+        TriggerEvent('esx:getSharedObject', function(obj)
+            ESX = obj
+        end)
+        Citizen.Wait(10)
+    end
 
-	PlayerData = ESX.GetPlayerData()
+    while ESX.GetPlayerData() == nil do
+        Citizen.Wait(10)
+    end
+
+    PlayerData = ESX.GetPlayerData()
 end)
 
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        if IsControlJustReleased(0, Keys['F3']) then
+            if showDialog then
+                TriggerEvent('tablet:off')
+            else
+                TriggerEvent('tablet:on')
+            end
+        end
+    end
+end)
+
+--//////////REGISTER SLASH COMMANDS//////////--
 RegisterCommand("tablet", function()
     if showDialog == true then
-		TriggerEvent("tablet:off")
-	else
-		TriggerEvent("tablet:on")
-	end
+        TriggerEvent("tablet:off")
+    else
+        TriggerEvent("tablet:on")
+    end
 end, false)
 
---//////////////////////////////////////////--
-
+--//////////NET EVENTS//////////--
 RegisterNetEvent("tablet:on")
 RegisterNetEvent("tablet:off")
 
 AddEventHandler("tablet:on", function(value)
-	SetNuiFocus(true,true)
-	showDialog = true
+    SetNuiFocus(true, true)
+    showDialog = true
     SendNUIMessage({
         showDialog = true,
-		playerData = PlayerData
+        playerData = PlayerData
     })
 end)
 
 AddEventHandler("tablet:off", function(value)
-	SetNuiFocus(false)
-	showDialog = false
+    SetNuiFocus(false)
+    showDialog = false
     SendNUIMessage({
         showDialog = false
     })
 end)
 
-RegisterNUICallback('escape', function(data, cb)
-	TriggerEvent('tablet:off')
-	cb('ok')
+--//////////NUI CALLBACKS (THESE ARE ACCESSIBLE FROM JAVASCRIPT)//////////--
+RegisterNUICallback('openTablet', function(data, cb)
+    TriggerEvent('tablet:on')
+    cb('ok')
+end)
+
+RegisterNUICallback('closeTablet', function(data, cb)
+    TriggerEvent('tablet:off')
+    cb('ok')
 end)
 
 RegisterNUICallback('javascriptError', function(data, cb)
-	TriggerEvent('tablet:off')
-	TriggerEvent('chat:addMessage', {
-	  color = { 255, 0, 0},
-	  multiline = true,
-	  args = {'Javascript Error: ', data}
-	})
-	cb('ok')
+    TriggerEvent('chat:addMessage', {
+        color = { 255, 0, 0 },
+        multiline = true,
+        args = { 'Javascript Error: ', data }
+    })
+    cb('ok')
 end)

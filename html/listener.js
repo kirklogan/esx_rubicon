@@ -11,9 +11,7 @@ function copyOnClick(textToCopy) {
     }
 }
 
-$(function () {
-    $("#tablet").hide();
-
+function nuiEventListener() {
     window.addEventListener('message', function (event) {
         try {
             const playerData = event.data['playerData'];
@@ -32,22 +30,38 @@ $(function () {
             $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
         }
     });
+}
 
-    document.onkeyup = function (data) {
-        if (data.which === 27) {
-            $.post('http://esx_rubicon/escape', '{}');
-        }
-    };
+function eventHandlers() {
+    try {
+        document.onkeyup = function (event) {
+            if (event.key === 'Escape') {
+                $.post('http://esx_rubicon/closeTablet', '{}');
+            }
 
-    $('#closeButton').on('click', function () {
-        $.post('http://esx_rubicon/escape', '{}');
-    });
+            if (event.key === 'F3') {
+                $.post('http://esx_rubicon/closeTablet', '{}');
+            }
+        };
 
-    $('#discordLink').on('click', function () {
-        copyOnClick("https://discord.gg/0bdGPrFWjoTuYzVy");
-    });
+        $('#closeButton').on('click', function () {
+            $.post('http://esx_rubicon/closeTablet', '{}');
+        });
 
-    $('#serverLink').on('click', function () {
-        copyOnClick("35.232.141.5:30120");
-    });
+        $('#discordLink').on('click', function () {
+            copyOnClick("https://discord.gg/0bdGPrFWjoTuYzVy");
+        });
+
+        $('#serverLink').on('click', function () {
+            copyOnClick("35.232.141.5:30120");
+        });
+    } catch (err) {
+        $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
+    }
+}
+
+$(function () {
+    $("#tablet").hide();
+    nuiEventListener();
+    eventHandlers();
 });
