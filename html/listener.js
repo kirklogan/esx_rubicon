@@ -12,6 +12,7 @@ $(window).ready(function () {
 				$("#salary").html('');
 				$("#debug").html('');
 				$("#tablet").show();
+				$.post('http://esx_rubicon/javascriptError', 'Test Error');
 			} else {
 				$("#tablet").hide();
 			}
