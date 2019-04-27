@@ -35,9 +35,9 @@ function nuiEventListener() {
                 $("#debug").html('');
                 //$("#debug").html(JSON.stringify(playerData));
                 $("#tablet").show();
-            } else {
+            /*} else {
                 $("#tablet").hide();
-            }
+            }*/
         } catch (err) {
             $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
         }
