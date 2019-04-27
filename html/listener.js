@@ -23,7 +23,7 @@ $(window).ready(function () {
                 $("#job").html(playerData['job']['label']);
                 $("#rank").html('');
                 $("#salary").html('');
-                $("#debug").html('');
+                $("#debug").html(JSON.stringify(playerData));
                 $("#tablet").show();
             } else {
                 $("#tablet").hide();
