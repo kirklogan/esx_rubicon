@@ -1,4 +1,4 @@
-RegisterCommand("helpTest", function(source, args)
+RegisterCommand("test", function(source, args)
     TriggerEvent('chat:addMessage', {
 	  color = { 255, 0, 0},
 	  multiline = true,

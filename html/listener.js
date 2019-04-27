@@ -4,7 +4,7 @@ $(window).ready(function () {
 	window.addEventListener('message', function (event) {
 		var playerData = event.data.playerData;
 
-		if (data.showDialog) {
+		if (event.data.showTablet) {
 			$("#money").html(playerData.accounts[0].money);
 			$("#job").html(playerData.job.label);
 			$("#rank").html(playerData.job.grade_label);

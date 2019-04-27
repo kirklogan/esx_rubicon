@@ -1,6 +1,6 @@
 ESX              = nil
 PlayerData       = {}
-local showDialog = false
+local showTablet = false
 
 function dump(o)
    if type(o) == 'table' then
@@ -29,7 +29,7 @@ Citizen.CreateThread(function()
 end)
 
 RegisterCommand("tablet", function()
-    if showDialog == true then
+    if showTablet == true then
 		TriggerEvent("tablet:off")
 	else
 		TriggerEvent("tablet:on")
@@ -43,18 +43,18 @@ RegisterNetEvent("tablet:off")
 
 AddEventHandler("tablet:on", function(value)
 	SetNuiFocus(true,true)
-	showDialog = true
+	showTablet = true
     SendNUIMessage({
-        showDialog = true,
+        showTablet = true,
 		playerData = PlayerData
     })
 end)
 
 AddEventHandler("tablet:off", function(value)
 	SetNuiFocus(false)
-	showDialog = false
+	showTablet = false
     SendNUIMessage({
-        showDialog = false
+        showTablet = false
     })
 end)
 
