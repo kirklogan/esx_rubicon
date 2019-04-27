@@ -35,8 +35,6 @@ function nuiEventListener() {
 function eventHandlers() {
     try {
         document.onkeyup = function (event) {
-            $.post('http://esx_rubicon/javascriptError', JSON.stringify(event.key));
-
             if (event.key === 'Escape') {
                 $.post('http://esx_rubicon/escape', '{}');
             }
