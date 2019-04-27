@@ -12,7 +12,7 @@ function copyOnClick(textToCopy) {
 }
 
 function renderBankAccounts(accounts) {
-    const header = $("li")
+    const header = $("<li/>")
         .addClass("divider")
         .attr("data-content", "FINANCE");
 
