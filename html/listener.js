@@ -1,4 +1,4 @@
-function copyOnClick (textToCopy) {
+function copyOnClick(textToCopy) {
     try {
         const el = document.createElement('textarea');
         el.value = textToCopy;
@@ -11,7 +11,7 @@ function copyOnClick (textToCopy) {
     }
 }
 
-$(window).ready(function () {
+$(function () {
     $("#tablet").hide();
 
     window.addEventListener('message', function (event) {
