@@ -41,7 +41,7 @@ function eventHandlers() {
         };
 
         $('#closeButton').on('click', function () {
-            $.post('http://esx_rubicon/closeTablet', '{}');
+            $.post('http://esx_rubicon/escape', '{}');
         });
 
         $('#discordLink').on('click', function () {
