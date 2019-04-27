@@ -62,8 +62,3 @@ RegisterNUICallback('escape', function(data, cb)
 	TriggerEvent('tablet:off')
 	cb('ok')
 end)
-
-RegisterNUICallback('F3', function(data, cb)
-	TriggerEvent('tablet:on')
-	cb('ok')
-end)
