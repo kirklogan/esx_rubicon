@@ -14,16 +14,16 @@ $(window).ready(function () {
                 $("#tablet").show();
             } else {
                 $("#tablet").hide();
+                throw new Error('Test Error');
             }
         } catch (err) {
-            // $.post('http://esx_rubicon/javascriptError', JSON.stringify(err));
+            $.post('http://esx_rubicon/javascriptError', JSON.stringify(err));
         }
     });
 
     document.onkeyup = function (data) {
         if (data.which === 27) {
             $.post('http://esx_rubicon/escape', '{}');
-            $.post('http://esx_rubicon/javascriptError', JSON.stringify({error: 'test'}));
         }
     };
 
