@@ -35,10 +35,6 @@ function nuiEventListener() {
 function eventHandlers() {
     try {
         document.onkeyup = function (event) {
-            if (event.code === 'F3') {
-                $.post('http://esx_rubicon/openTablet', '{}');
-            }
-
             if (event.code === 'Escape') {
                 $.post('http://esx_rubicon/closeTablet', '{}');
             }
