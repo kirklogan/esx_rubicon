@@ -3,7 +3,7 @@ $(window).ready(function () {
 
     window.addEventListener('message', function (event) {
         try {
-            var playerData = event.data['playerData'];
+            const playerData = event.data['playerData'];
 
             if (event.data['showDialog']) {
                 $("#money").html('');
@@ -12,12 +12,11 @@ $(window).ready(function () {
                 $("#salary").html('');
                 $("#debug").html('');
                 $("#tablet").show();
-                throw new Error('Test Error');
             } else {
                 $("#tablet").hide();
             }
         } catch (err) {
-            $.post('http://esx_rubicon/javascriptError', JSON.stringify(err));
+            $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
         }
     });
 
