@@ -18,6 +18,7 @@ function nuiEventListener() {
             $("#rankBtnEmt").hide();
             $("#rankBtnPolice").hide();
 
+
             //Button status for professions//
             if (event.data['showDialog']) {
                 if (playerData['job']['label'] === 'Police') {
@@ -25,6 +26,7 @@ function nuiEventListener() {
                     $("#rankBtnEmt").hide();
                 } else if (playerData['job']['label'] === 'EMS') {
                     $("#rankBtnEmt").show();
+                }
 
                 $("#money").html(playerData['accounts'][0]['money']);
                 $("#salary").html(playerData['job']['grade_salary']);
