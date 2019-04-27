@@ -1,3 +1,16 @@
+function copyOnClick (textToCopy) {
+    try {
+        const el = document.createElement('textarea');
+        el.value = textToCopy;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+    } catch (err) {
+        $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
+    }
+}
+
 $(window).ready(function () {
     $("#tablet").hide();
 
@@ -31,20 +44,10 @@ $(window).ready(function () {
     });
 
     $('#discordLink').on('click', function () {
-        const el = document.createElement('textarea');
-        el.value = "https://discord.gg/0bdGPrFWjoTuYzVy";
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
+        copyOnClick("https://discord.gg/0bdGPrFWjoTuYzVy");
     });
 
     $('#serverLink').on('click', function () {
-        const el = document.createElement('textarea');
-        el.value = "https://discord.gg/0bdGPrFWjoTuYzVy";
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
+        copyOnClick("35.232.141.5:30120");
     });
 });
