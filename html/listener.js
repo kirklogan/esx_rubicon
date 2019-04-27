@@ -9,7 +9,7 @@ $(window).ready(function () {
 			$("#job").html(playerData.job.label);
 			$("#rank").html('');
 			$("#salary").html('');
-			$("#debug").html(JSON.stringify(playerData));
+			$("#debug").html('');
 			$("#tablet").show();
 		} else {
 			$("#tablet").hide();

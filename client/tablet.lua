@@ -2,8 +2,6 @@ ESX              = nil
 PlayerData       = {}
 local showDialog = false
 
-SetNuiFocus(false)
-
 function dump(o)
    if type(o) == 'table' then
       local s = '{ '
