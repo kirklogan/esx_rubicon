@@ -16,6 +16,7 @@ $(window).ready(function () {
 				$("#tablet").hide();
 			}
 		} catch (err) {
+			// TEST
 			$.post('http://esx_rubicon/javascriptError', JSON.stringify(err));
 		}
 	});
