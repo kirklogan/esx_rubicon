@@ -18,12 +18,13 @@ function nuiEventListener() {
 
             if (event.data['showDialog']) {
                 if (playerData['job']['label'] === 'Police') {
-                    $("#rankBtn").show();
+                    $("#rankBtnPolice").show();
                 } else if (playerData['job']['label' === 'EMT']) {
-                    $("#rankEmt").show();
+                    $("#rankBtnEmt").show();
                 }
                 else {
-                    $("#rankBtn").hide();
+                    $("#rankBtnPolice").hide();
+                    $("#rankBtnEmt").hide();
                 }
                 $("#money").html(playerData['accounts'][0]['money']);
                 $("#salary").html(playerData['job']['grade_salary']);
