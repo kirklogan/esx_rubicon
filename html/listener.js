@@ -72,6 +72,9 @@ function nuiEventListener() {
                 } else if (playerData['job']['label'] === 'EMS') {
                     $("#rankBtnEmt").show();
                     $("#rankBtnPolice").hide();
+                } else {
+                    $("#rankBtnPolice").hide();
+                    $("#rankBtnEmt").hide();
                 }
 
                 $("#money").html(playerData['accounts'][0]['money']);
