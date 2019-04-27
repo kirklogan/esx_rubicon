@@ -14,6 +14,7 @@ ESX = nil
 PlayerData = {}
 local showDialog = false
 
+--//////////DEBUG FUNCTION//////////--
 function dump(o)
     if type(o) == 'table' then
         local s = '{ '
@@ -29,6 +30,7 @@ function dump(o)
     end
 end
 
+--//////////THREADS//////////--
 Citizen.CreateThread(function()
     while ESX == nil do
         TriggerEvent('esx:getSharedObject', function(obj)
@@ -57,6 +59,7 @@ Citizen.CreateThread(function()
     end
 end)
 
+--//////////REGISTER SLASH COMMANDS//////////--
 RegisterCommand("tablet", function()
     if showDialog == true then
         TriggerEvent("tablet:off")
@@ -65,8 +68,7 @@ RegisterCommand("tablet", function()
     end
 end, false)
 
---//////////////////////////////////////////--
-
+--//////////NET EVENTS//////////--
 RegisterNetEvent("tablet:on")
 RegisterNetEvent("tablet:off")
 
@@ -87,6 +89,7 @@ AddEventHandler("tablet:off", function(value)
     })
 end)
 
+--//////////NUI CALLBACKS (THESE ARE ACCESSIBLE FROM JAVASCRIPT)//////////--
 RegisterNUICallback('openTablet', function(data, cb)
     TriggerEvent('tablet:on')
     cb('ok')
