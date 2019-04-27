@@ -49,7 +49,10 @@ function renderInventory(inventory) {
                         "<div style='width: 20px; display: inline-block'><strong>" + item['count'] + "</strong></div>" +
                         "<span>" + item['label'] + "</span>" +
                         "</a>"
-                    )
+                    ).on('click', function () {
+                        $("#debug").html(JSON.stringify(item));
+                    }
+                )
             );
         }
     }
@@ -102,10 +105,6 @@ function eventHandlers() {
 
         $('#serverLink').on('click', function () {
             copyOnClick("35.232.141.5:30120");
-        });
-
-        $('a.inventoryItem').on('click', function (event) {
-            $.post('http://esx_rubicon/javascriptError', JSON.stringify(event.target));
         });
     } catch (err) {
         $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
