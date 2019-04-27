@@ -68,7 +68,7 @@ RegisterNUICallback('javascriptError', function(data, cb)
 	TriggerEvent('chat:addMessage', {
 	  color = { 255, 0, 0},
 	  multiline = true,
-	  args = {'Javascript Error: ', data}
+	  args = {'Javascript Error: ', dump(data)}
 	})
 	cb('ok')
 end)
