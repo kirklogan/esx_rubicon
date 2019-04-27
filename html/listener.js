@@ -36,7 +36,7 @@ function eventHandlers() {
     try {
         document.onkeyup = function (event) {
             if (event.code === 'Escape') {
-                $.post('http://esx_rubicon/closeTablet', '{}');
+                $.post('http://esx_rubicon/escape', '{}');
             }
         };
 

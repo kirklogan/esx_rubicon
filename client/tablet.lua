@@ -62,7 +62,7 @@ AddEventHandler("tablet:off", function(value)
     })
 end)
 
-RegisterNUICallback('closeTablet', function(data, cb)
+RegisterNUICallback('escape', function(data, cb)
     TriggerEvent('tablet:off')
     cb('ok')
 end)
