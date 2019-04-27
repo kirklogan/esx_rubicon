@@ -103,6 +103,12 @@ RegisterNUICallback('closeTablet', function(data, cb)
     cb('ok')
 end)
 
+RegisterNUICallback('useItem', function(item, cb)
+    TriggerServerEvent('esx:useItem', item)
+    TriggerEvent('tablet:on')
+    cb('ok')
+end)
+
 RegisterNUICallback('javascriptError', function(data, cb)
     TriggerEvent('chat:addMessage', {
         color = { 255, 0, 0 },
