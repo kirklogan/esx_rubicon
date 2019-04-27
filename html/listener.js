@@ -17,14 +17,14 @@ function renderBankAccounts(accounts) {
     listItems.push(
         $("<li/>")
             .addClass("divider")
-            .attr("data-content", "FINANCE")
+            .attr("data-content", "FINANCES")
     );
 
     for (const account of accounts) {
         listItems.push(
             $("<li/>")
                 .addClass("menu-item")
-                .html("<strong>" + account['label'] + ": $</strong>" + account['money'])
+                .html("<a><strong>" + account['label'] + ": $</strong>" + account['money'] + "</a>")
         );
     }
 
