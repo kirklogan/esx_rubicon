@@ -31,6 +31,28 @@ function renderBankAccounts(accounts) {
     return listItems;
 }
 
+function renderInventory(inventory) {
+    const listItems = [];
+
+    listItems.push(
+        $("<li/>")
+            .addClass("divider")
+            .attr("data-content", "INVENTORY")
+    );
+
+    for (const item of inventory) {
+        if (item['count'] > 0) {
+            listItems.push(
+                $("<li/>")
+                    .addClass("menu-item")
+                    .html("<span class='badge' data-badge='" + item['count'] + "'>" + item['label'] + "</span>")
+            );
+        }
+    }
+
+    return listItems;
+}
+
 function nuiEventListener() {
     window.addEventListener('message', function (event) {
         try {
@@ -38,6 +60,7 @@ function nuiEventListener() {
 
             if (event.data['showDialog']) {
                 $("#bank-account-list").html(renderBankAccounts(playerData['accounts']));
+                $("#inventory-list").html(renderInventory(playerData['inventory']));
 
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
