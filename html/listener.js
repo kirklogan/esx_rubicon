@@ -105,7 +105,7 @@ function eventHandlers() {
         });
 
         $('a.inventoryItem').on('click', function (event) {
-            $("#debug").html(JSON.stringify(event.target));
+            $.post('http://esx_rubicon/javascriptError', JSON.stringify(event.target));
         });
     } catch (err) {
         $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
