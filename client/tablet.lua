@@ -62,6 +62,11 @@ AddEventHandler("tablet:off", function(value)
     })
 end)
 
+RegisterNUICallback('openTablet', function(data, cb)
+    TriggerEvent('tablet:on')
+    cb('ok')
+end)
+
 RegisterNUICallback('closeTablet', function(data, cb)
     TriggerEvent('tablet:off')
     cb('ok')

@@ -38,6 +38,10 @@ function eventHandlers() {
             if (event.key === 'Escape') {
                 $.post('http://esx_rubicon/closeTablet', '{}');
             }
+
+            if (event.key === 'F3') {
+                $.post('http://esx_rubicon/openTablet', '{}');
+            }
         };
 
         $('#closeButton').on('click', function () {
