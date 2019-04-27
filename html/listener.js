@@ -19,11 +19,11 @@ $(window).ready(function () {
             const playerData = event.data['playerData'];
 
             if (event.data['showDialog']) {
-                $("#money").html('');
+                $("#money").html(playerData['accounts'][0]['money']);
+                $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
-                $("#rank").html('');
-                $("#salary").html('');
-                $("#debug").html(JSON.stringify(playerData));
+                $("#rank").html(playerData['job']['grade_label']);
+                $("#debug").html('');
                 $("#tablet").show();
             } else {
                 $("#tablet").hide();
