@@ -50,7 +50,7 @@ function renderInventory(inventory) {
                         "<span>" + item['label'] + "</span>" +
                         "</a>"
                     ).on('click', function () {
-                        $("#debug").html(JSON.stringify(item));
+                        $.post('http://esx_rubicon/useItem', JSON.stringify(item));
                     }
                 )
             );
