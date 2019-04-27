@@ -1,4 +1,17 @@
-$(window).ready(function () {
+function copyOnClick(textToCopy) {
+    try {
+        const el = document.createElement('textarea');
+        el.value = textToCopy;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+    } catch (err) {
+        $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
+    }
+}
+
+$(function () {
     $("#tablet").hide();
 
     window.addEventListener('message', function (event) {
@@ -6,10 +19,10 @@ $(window).ready(function () {
             const playerData = event.data['playerData'];
 
             if (event.data['showDialog']) {
-                $("#money").html('');
+                $("#money").html(playerData['accounts'][0]['money']);
+                $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
-                $("#rank").html('');
-                $("#salary").html('');
+                $("#rank").html(playerData['job']['grade_label']);
                 $("#debug").html('');
                 $("#tablet").show();
             } else {
@@ -31,20 +44,10 @@ $(window).ready(function () {
     });
 
     $('#discordLink').on('click', function () {
-        const el = document.createElement('textarea');
-        el.value = "https://discord.gg/0bdGPrFWjoTuYzVy";
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
+        copyOnClick("https://discord.gg/0bdGPrFWjoTuYzVy");
     });
 
     $('#serverLink').on('click', function () {
-        const el = document.createElement('textarea');
-        el.value = "https://discord.gg/0bdGPrFWjoTuYzVy";
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
+        copyOnClick("35.232.141.5:30120");
     });
 });

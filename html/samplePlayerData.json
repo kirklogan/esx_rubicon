@@ -1,0 +1,259 @@
+{
+  "inventory": [
+    {
+      "canRemove": true,
+      "limit": 20,
+      "rare": false,
+      "count": 0,
+      "name": "bandage",
+      "label": "Bandage",
+      "usable": true
+    },
+    {
+      "canRemove": true,
+      "limit": 10,
+      "rare": false,
+      "count": 0,
+      "name": "bread",
+      "label": "Bread",
+      "usable": true
+    },
+    {
+      "canRemove": true,
+      "limit": 40,
+      "rare": false,
+      "count": 0,
+      "name": "cannabis",
+      "label": "Cannabis",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 14,
+      "rare": false,
+      "count": 0,
+      "name": "marijuana",
+      "label": "Marijuana",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 5,
+      "rare": false,
+      "count": 0,
+      "name": "medikit",
+      "label": "Medikit",
+      "usable": true
+    },
+    {
+      "canRemove": true,
+      "limit": 5,
+      "rare": false,
+      "count": 0,
+      "name": "water",
+      "label": "Water",
+      "usable": true
+    },
+    {
+      "canRemove": true,
+      "limit": 100,
+      "rare": false,
+      "count": 0,
+      "name": "packaged_chicken",
+      "label": "chicken fillet",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 40,
+      "rare": false,
+      "count": 0,
+      "name": "clothe",
+      "label": "cloth",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 56,
+      "rare": false,
+      "count": 0,
+      "name": "copper",
+      "label": "copper",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 20,
+      "rare": false,
+      "count": 0,
+      "name": "cutted_wood",
+      "label": "cut wood",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 50,
+      "rare": false,
+      "count": 0,
+      "name": "diamond",
+      "label": "diamond",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 80,
+      "rare": false,
+      "count": 0,
+      "name": "fabric",
+      "label": "fabric",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 100,
+      "rare": false,
+      "count": 0,
+      "name": "fish",
+      "label": "fish",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 24,
+      "rare": false,
+      "count": 0,
+      "name": "essence",
+      "label": "gas",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 21,
+      "rare": false,
+      "count": 0,
+      "name": "gold",
+      "label": "gold",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 42,
+      "rare": false,
+      "count": 0,
+      "name": "iron",
+      "label": "iron",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 20,
+      "rare": false,
+      "count": 0,
+      "name": "alive_chicken",
+      "label": "living chicken",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 24,
+      "rare": false,
+      "count": 0,
+      "name": "petrol",
+      "label": "oil",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 100,
+      "rare": false,
+      "count": 0,
+      "name": "packaged_plank",
+      "label": "packaged wood",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 24,
+      "rare": false,
+      "count": 0,
+      "name": "petrol_raffin",
+      "label": "processed oil",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 20,
+      "rare": false,
+      "count": 0,
+      "name": "slaughtered_chicken",
+      "label": "slaughtered chicken",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 7,
+      "rare": false,
+      "count": 0,
+      "name": "stone",
+      "label": "stone",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 7,
+      "rare": false,
+      "count": 0,
+      "name": "washed_stone",
+      "label": "washed stone",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 20,
+      "rare": false,
+      "count": 0,
+      "name": "wood",
+      "label": "wood",
+      "usable": false
+    },
+    {
+      "canRemove": true,
+      "limit": 40,
+      "rare": false,
+      "count": 0,
+      "name": "wool",
+      "label": "wool",
+      "usable": false
+    }
+  ],
+  "loadout": [],
+  "lastPosition": {
+    "x": 337.44821166992,
+    "z": 32.509231567383,
+    "y": -1396.5478515625
+  },
+  "accounts": [
+    {
+      "name": "bank",
+      "money": 224280,
+      "label": "Bank"
+    },
+    {
+      "name": "black_money",
+      "money": 0,
+      "label": "Dirty Money"
+    }
+  ],
+  "identifier": "steam:11000010271dba2",
+  "money": 0,
+  "job": {
+    "grade_salary": 500,
+    "grade": 0,
+    "label": "Police",
+    "grade_label": "Recruit",
+    "skin_female": [],
+    "name": "police",
+    "skin_male": [],
+    "grade_name": "recruit"
+  }
+}
