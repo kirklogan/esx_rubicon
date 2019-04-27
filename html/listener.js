@@ -19,19 +19,18 @@ function nuiEventListener() {
             if (event.data['showDialog']) {
                 if (playerData['job']['label'] === 'Police') {
                     $("#rankBtnPolice").show();
+                    $("#rankBtnEmt").hide();
                 } else if (playerData['job']['label'] === 'EMS') {
                     $("#rankBtnEmt").show();
-                }
-                else {
                     $("#rankBtnPolice").hide();
-                    $("#rankBtnEmt").hide();
                 }
+
                 $("#money").html(playerData['accounts'][0]['money']);
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
                 $("#rank").html(playerData['job']['grade_label']);
-                //$("#debug").html('');
-                $("#debug").html(JSON.stringify(playerData));
+                $("#debug").html('');
+                //$("#debug").html(JSON.stringify(playerData));
                 $("#tablet").show();
             } else {
                 $("#tablet").hide();
