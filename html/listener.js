@@ -4,7 +4,7 @@ $(window).ready(function () {
 	window.addEventListener('message', function (event) {
 		var playerData = event.data.playerData;
 
-		if (event.data.showTablet) {
+		if (event.data.showDialog) {
 			$("#money").html(playerData.accounts[0].money);
 			$("#job").html(playerData.job.label);
 			$("#rank").html(playerData.job.grade_label);
@@ -18,12 +18,6 @@ $(window).ready(function () {
 	document.onkeyup = function (data) {
 		if (data.which == 27) {
 			$.post('http://esx_rubicon/escape', '{}');
-		}
-	};
-	
-	document.onkeyup = function (data) {
-		if (data.which == 114) {
-			$.post('http://esx_rubicon/F3', '{}');
 		}
 	};
 	
