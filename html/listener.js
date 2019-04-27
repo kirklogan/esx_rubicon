@@ -62,7 +62,6 @@ function nuiEventListener() {
         try {
             const playerData = event.data['playerData'];
 
-
             if (event.data['showDialog']) {
                 $("#bank-account-list").html(renderBankAccounts(playerData['accounts']));
                 $("#inventory-list").html(renderInventory(playerData['inventory']));
@@ -72,9 +71,9 @@ function nuiEventListener() {
                 $("#rank").html(playerData['job']['grade_label']);
                 $("#debug").html('');
                 $("#tablet").show();
-            /*} else {
+            } else {
                 $("#tablet").hide();
-            }*/
+            }
         } catch (err) {
             $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
         }
