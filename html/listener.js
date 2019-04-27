@@ -71,9 +71,9 @@ function nuiEventListener() {
                 $("#rank").html(playerData['job']['grade_label']);
                 $("#debug").html('');
                 $("#tablet").show();
-            /*} else {
+            } else {
                 $("#tablet").hide();
-            }*/
+            }
         } catch (err) {
             $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
         }
