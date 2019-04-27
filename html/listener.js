@@ -68,7 +68,7 @@ function nuiEventListener() {
 
                 if (playerData['job']['label'] === 'Police') {
                     $("#rankBtnPolice").show();
-                } else if (playerData['job']['label' === 'EMT']) {
+                } else if (playerData['job']['label' === 'EMS']) {
                     $("#rankBtnEmt").show();
                 }
                 else {
