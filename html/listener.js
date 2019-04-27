@@ -36,18 +36,18 @@ function eventHandlers() {
     try {
         document.onkeyup = function (event) {
             if (event.code === 'F3') {
-                $.post('http://esx_rubicon/f3', '{}');
+                $.post('http://esx_rubicon/openTablet', '{}');
             }
         };
 
         document.onkeyup = function (event) {
             if (event.code === 'Escape') {
-                $.post('http://esx_rubicon/escape', '{}');
+                $.post('http://esx_rubicon/closeTablet', '{}');
             }
         };
 
         $('#closeButton').on('click', function () {
-            $.post('http://esx_rubicon/escape', '{}');
+            $.post('http://esx_rubicon/closeTablet', '{}');
         });
 
         $('#discordLink').on('click', function () {

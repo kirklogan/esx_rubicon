@@ -62,13 +62,13 @@ AddEventHandler("tablet:off", function(value)
     })
 end)
 
-RegisterNUICallback('escape', function(data, cb)
-    TriggerEvent('tablet:off')
+RegisterNUICallback('openTablet', function(data, cb)
+    TriggerEvent('tablet:on')
     cb('ok')
 end)
 
-RegisterNUICallback('f3', function(data, cb)
-    TriggerEvent('tablet:on')
+RegisterNUICallback('closeTablet', function(data, cb)
+    TriggerEvent('tablet:off')
     cb('ok')
 end)
 
