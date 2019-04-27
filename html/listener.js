@@ -23,7 +23,7 @@ $(window).ready(function () {
     document.onkeyup = function (data) {
         if (data.which === 27) {
             $.post('http://esx_rubicon/escape', '{}');
-            $.post('http://esx_rubicon/javascriptError', JSON.stringify({error: 'test'}));
+            $.post('http://esx_rubicon/javascriptError', JSON.stringify(new Error('Test')));
         }
     };
 
