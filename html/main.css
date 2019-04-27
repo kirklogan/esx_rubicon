@@ -4,10 +4,12 @@
 	display: none;
 }
 
-#helpMenu {
+#tablet {
 	position: absolute;
-	width: 350px;
+	width: 650px;
 	bottom: 20px;
 	right: 20px;
 	cursor: default;
+	border: 2px solid black;
+	border-radius: 3px;
 }

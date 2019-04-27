@@ -4,7 +4,7 @@ description 'Rubicon Custom Scripts'
 ui_page 'html/index.html'
 
 client_scripts {
-	'client/help-menu.lua',
+	'client/tablet.lua',
     'client/client.lua'
 } 
 

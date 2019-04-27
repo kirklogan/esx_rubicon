@@ -1,17 +1,17 @@
 $(window).ready(function () {
-	$("#helpMenu").hide();
+	$("#tablet").hide();
 	
 	window.addEventListener('message', function (event) {
-		var data = event.data;
+		var playerData = event.data.playerData;
 
 		if (data.showDialog) {
-			$("#money").html(data.money);
-			$("#job").html(data.job);
-			$("#rank").html(data.rank);
-			$("#salary").html(JSON.stringify(data.playerData));
-			$("#helpMenu").show();
+			$("#money").html(playerData.accounts[0].money);
+			$("#job").html(playerData.job.label);
+			$("#rank").html(playerData.job.grade_label);
+			$("#salary").html(playerData.job.grade_salary);
+			$("#tablet").show();
 		} else {
-			$("#helpMenu").hide();
+			$("#tablet").hide();
 		}
 	});
 	

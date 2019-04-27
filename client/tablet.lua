@@ -28,39 +28,29 @@ Citizen.CreateThread(function()
 	PlayerData = ESX.GetPlayerData()
 end)
 
-RegisterCommand("help", function()
+RegisterCommand("tablet", function()
     if showDialog == true then
-		TriggerEvent("helpMenu:off")
+		TriggerEvent("tablet:off")
 	else
-		TriggerEvent("helpMenu:on")
+		TriggerEvent("tablet:on")
 	end
 end, false)
 
 --//////////////////////////////////////////--
 
-RegisterNetEvent("helpMenu:on")
-RegisterNetEvent("helpMenu:off")
+RegisterNetEvent("tablet:on")
+RegisterNetEvent("tablet:off")
 
-AddEventHandler("helpMenu:on", function(value)
+AddEventHandler("tablet:on", function(value)
 	SetNuiFocus(true,true)
 	showDialog = true
     SendNUIMessage({
         showDialog = true,
-		money = ESX.Math.GroupDigits(PlayerData.accounts[1].money),
-		job = PlayerData.job.label,
-		rank = PlayerData.job.grade_label,
-		salary = PlayerData.job.grade_salary,
 		playerData = PlayerData
     })
-	
-	TriggerEvent('chat:addMessage', {
-	  color = { 255, 0, 0},
-	  multiline = true,
-	  args = {dump(PlayerData.job)}
-	})
 end)
 
-AddEventHandler("helpMenu:off", function(value)
+AddEventHandler("tablet:off", function(value)
 	SetNuiFocus(false)
 	showDialog = false
     SendNUIMessage({
@@ -69,6 +59,6 @@ AddEventHandler("helpMenu:off", function(value)
 end)
 
 RegisterNUICallback('escape', function(data, cb)
-	TriggerEvent('helpMenu:off')
+	TriggerEvent('tablet:off')
 	cb('ok')
 end)
