@@ -32,6 +32,19 @@ Citizen.CreateThread(function()
     PlayerData = ESX.GetPlayerData()
 end)
 
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        if IsControlJustReleased(0, Keys['F1']) and GetLastInputMethod(2) then
+            if not showDialog then
+                TriggerEvent('tablet:on')
+            else
+                TriggerEvent('tablet:off')
+            end
+        end
+    end
+end)
+
 RegisterCommand("tablet", function()
     if showDialog == true then
         TriggerEvent("tablet:off")
