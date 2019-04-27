@@ -11,7 +11,7 @@ local Keys = {
 }
 
 ESX = nil
-PlayerData = {}
+PlayerData = nil
 local showDialog = false
 
 --//////////DEBUG FUNCTION//////////--
@@ -39,7 +39,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(10)
     end
 
-    while ESX.GetPlayerData() == nil do
+    while PlayerData == nil do
         PlayerData = ESX.GetPlayerData()
         Citizen.Wait(10)
     end
