@@ -12,11 +12,23 @@ function copyOnClick(textToCopy) {
 }
 
 function renderBankAccounts(accounts) {
-    const header = $("<li/>")
-        .addClass("divider")
-        .attr("data-content", "FINANCE");
+    const listItems = [];
 
-    return header;
+    listItems.push(
+        $("<li/>")
+            .addClass("divider")
+            .attr("data-content", "FINANCE")
+    );
+
+    for (const account of accounts) {
+        listItems.push(
+            $("<li/>")
+                .addClass("menu-item")
+                .html("<strong>" + account['label'] + ": $</strong>" + account['money'])
+        );
+    }
+
+    return listItems;
 }
 
 function nuiEventListener() {
