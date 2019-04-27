@@ -25,7 +25,7 @@ function nuiEventListener() {
             const playerData = event.data['playerData'];
 
             if (event.data['showDialog']) {
-                $("#bank-account-list").append(renderBankAccounts(playerData['accounts']).html());
+                $("#bank-account-list").html(renderBankAccounts(playerData['accounts']));
 
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
