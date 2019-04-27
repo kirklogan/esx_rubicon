@@ -1,5 +1,5 @@
 $(window).ready(function () {
-	$("#tablet").false();
+	$("#tablet").hide();
 	
 	window.addEventListener('message', function (event) {
 		var playerData = event.data.playerData;
