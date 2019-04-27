@@ -61,7 +61,10 @@ function nuiEventListener() {
     window.addEventListener('message', function (event) {
         try {
             const playerData = event.data['playerData'];
+            $("#rankBtnEmt").hide();
+            $("#rankBtnPolice").hide();
 
+            //Button status for professions//
             if (event.data['showDialog']) {
                 $("#bank-account-list").html(renderBankAccounts(playerData['accounts']));
                 $("#inventory-list").html(renderInventory(playerData['inventory']));
@@ -71,11 +74,6 @@ function nuiEventListener() {
                     $("#rankBtnEmt").hide();
                 } else if (playerData['job']['label'] === 'EMS') {
                     $("#rankBtnEmt").show();
-                    $("#rankBtnPolice").hide();
-                } else {
-                    $("#rankBtnPolice").hide();
-                    $("#rankBtnEmt").hide();
-                }
 
                 $("#money").html(playerData['accounts'][0]['money']);
                 $("#salary").html(playerData['job']['grade_salary']);
