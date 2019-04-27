@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="82e9af50-72ce-477a-99df-fac1a02c97ec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/client/tablet.lua" beforeDir="false" afterPath="$PROJECT_DIR$/client/tablet.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/listener.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/listener.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/tablet.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1064">
-              <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+            <state relative-caret-position="998">
+              <caret line="70" column="35" lean-forward="true" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
               <folding>
                 <element signature="e#87#349#0" />
               </folding>
@@ -117,12 +116,12 @@
       <updated>1556375078237</updated>
       <workItem from="1556375080838" duration="44000" />
       <workItem from="1556375137322" duration="362000" />
-      <workItem from="1556375512733" duration="1916000" />
+      <workItem from="1556375512733" duration="1952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2322000" />
+    <option name="totallyTimeSpent" value="2358000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -175,8 +174,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/tablet.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1064">
-          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+        <state relative-caret-position="998">
+          <caret line="70" column="35" lean-forward="true" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
           <folding>
             <element signature="e#87#349#0" />
           </folding>
