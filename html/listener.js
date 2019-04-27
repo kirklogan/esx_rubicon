@@ -36,12 +36,12 @@ function eventHandlers() {
     try {
         document.onkeyup = function (event) {
             if (event.code === 'Escape') {
-                $.post('http://esx_rubicon/tabletoff', '{}');
+                $.post('http://esx_rubicon/escape', '{}');
             }
         };
 
         $('#closeButton').on('click', function () {
-            $.post('http://esx_rubicon/tabletoff', '{}');
+            $.post('http://esx_rubicon/escape', '{}');
         });
 
         $('#discordLink').on('click', function () {
