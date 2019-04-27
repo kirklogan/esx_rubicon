@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82e9af50-72ce-477a-99df-fac1a02c97ec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/client/tablet.lua" beforeDir="false" afterPath="$PROJECT_DIR$/client/tablet.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/listener.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/listener.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -15,20 +16,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/listener.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="19" column="83" selection-start-line="19" selection-start-column="83" selection-end-line="19" selection-end-column="83" />
+              <caret line="19" column="75" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="75" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/tablet.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="778">
-              <caret line="60" column="48" lean-forward="true" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+            <state relative-caret-position="888">
+              <caret line="65" column="52" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="52" />
               <folding>
                 <element signature="e#87#349#0" />
               </folding>
@@ -44,9 +45,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/tablet.lua" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/html/listener.js" />
+        <option value="$PROJECT_DIR$/client/tablet.lua" />
       </list>
     </option>
   </component>
@@ -117,12 +118,12 @@
       <updated>1556375078237</updated>
       <workItem from="1556375080838" duration="44000" />
       <workItem from="1556375137322" duration="362000" />
-      <workItem from="1556375512733" duration="5290000" />
+      <workItem from="1556375512733" duration="5355000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5696000" />
+    <option name="totallyTimeSpent" value="5761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -166,16 +167,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/tablet.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="778">
-          <caret line="60" column="48" lean-forward="true" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
-          <folding>
-            <element signature="e#87#349#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -186,7 +177,17 @@
     <entry file="file://$PROJECT_DIR$/html/listener.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="19" column="83" selection-start-line="19" selection-start-column="83" selection-end-line="19" selection-end-column="83" />
+          <caret line="19" column="75" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/tablet.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="888">
+          <caret line="65" column="52" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="52" />
+          <folding>
+            <element signature="e#87#349#0" />
+          </folding>
         </state>
       </provider>
     </entry>
