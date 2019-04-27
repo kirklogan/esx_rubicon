@@ -104,8 +104,8 @@ function eventHandlers() {
             copyOnClick("35.232.141.5:30120");
         });
 
-        $('.inventoryItem').on('click', function (event) {
-            $("#debug").html(JSON.stringify(event));
+        $('a.inventoryItem').on('click', function (event) {
+            $("#debug").html(JSON.stringify(event.target));
         });
     } catch (err) {
         $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
