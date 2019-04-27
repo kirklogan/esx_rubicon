@@ -16,8 +16,8 @@ function nuiEventListener() {
         try {
             const playerData = event.data['playerData'];
 
-            /*if (event.data['showDialog']) {
-                if (playerData['job']['label'] === 'Police') {
+            if (event.data['showDialog']) {
+                /*if (playerData['job']['label'] === 'Police') {
                     $("#rankBtn").show();
                 } else {
                     $("#rankBtn").hide();
@@ -28,9 +28,9 @@ function nuiEventListener() {
                 $("#rank").html(playerData['job']['grade_label']);
                 $("#debug").html('');
                 $("#tablet").show();
-            /*} else {
+            } else {
                 $("#tablet").hide();
-            }*/
+            }
         } catch (err) {
             $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
         }
