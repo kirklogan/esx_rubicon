@@ -1,3 +1,7 @@
+function debug(data) {
+    $("#debug").html(JSON.stringify(data, null, 2));
+}
+
 function copyOnClick(textToCopy) {
     try {
         const el = document.createElement('textarea');
@@ -42,14 +46,15 @@ function renderInventory(inventory) {
 
     for (const item of inventory) {
         if (item['count'] > 0) {
+            const popoverParent = $("<div>").addClass("popover popover-right");
+
+            const menuItem = $("<li>").addClass("menu-item");
+            const menuItemLink = $("<a>").addClass("inventoryItem").data("item", item['name']);
+            const menuItemCount = $("<strong>").html(item['count']);
+            const menuItemText = $("<span>").html(item['label']);
+
             listItems.push(
-                $("<li/>")
-                    .addClass("menu-item")
-                    .html("<a class='inventoryItem' data-item='" + item['name'] + "'>" +
-                        "<div style='width: 20px; display: inline-block'><strong>" + item['count'] + "</strong></div>" +
-                        "<span>" + item['label'] + "</span>" +
-                        "</a>"
-                    )
+                menuItem.append(menuItemLink.append(menuItemCount).append(menuItemText))
             );
         }
     }
@@ -108,9 +113,8 @@ function eventHandlers() {
         });
 
         $(document).on('click', '.inventoryItem', function (event) {
-            const data = $( event.target ).data();
-            $("#debug").html(JSON.stringify(data.item, null, 2));
-            // $.post('http://esx_rubicon/useItem', JSON.stringify(item));
+            const data = $(event.target).data();
+            $.post('http://esx_rubicon/useItem', JSON.stringify(data.item));
         });
     } catch (err) {
         $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
