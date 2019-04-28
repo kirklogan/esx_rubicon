@@ -53,6 +53,8 @@ function renderInventory(inventory) {
                         if (item['usable']) {
                             $.post('http://esx_rubicon/useItem', JSON.stringify(item));
                         }
+                    }).on('contextmenu', function () {
+                        $("#testModal").show();
                     }
                 )
             );
