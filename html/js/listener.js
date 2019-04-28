@@ -51,7 +51,7 @@ function renderInventory(inventory, loadout) {
             const menuItemCount = $("<div>")
                 .addClass('text-bold')
                 .css('display', 'inline-block')
-                .css('width', '20px')
+                .css('width', '30px')
                 .html(item['count']);
             const menuItemText = $("<span>").html(item['label']);
 
@@ -76,9 +76,10 @@ function renderInventory(inventory, loadout) {
         const menuItem = $("<li>").addClass("menu-item");
         const menuItemLink = $("<a>");
         const menuItemCount = $("<div>")
-            .addClass('text-bold')
+            .addClass('text-bold s-rounded')
             .css('display', 'inline-block')
-            .css('width', '20px')
+            .css('width', '30px')
+            .css('background-color', 'blue')
             .html(item['ammo']);
         const menuItemText = $("<span>").html(item['label']);
 
