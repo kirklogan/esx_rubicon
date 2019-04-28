@@ -38,11 +38,10 @@ function renderBankAccounts(accounts) {
 
 function renderInventory(inventory, loadout) {
     const listItems = [];
-    const header = $("<li>").addClass("divider").attr("data-content", "INVENTORY");
-    const hintUse = $("<li>").addClass("divider").attr("data-content", "Left click to use");
-    const hintDrop = $("<li>").addClass("divider").attr("data-content", "Right click to drop");
+    const itemsHeader = $("<li>").addClass("divider").attr("data-content", "ITEMS");
+    const weaponsHeader = $("<li>").addClass("divider").attr("data-content", "WEAPONS");
 
-    listItems.push(header);
+    listItems.push(itemsHeader);
 
     for (const item of inventory) {
         if (item['count'] > 0) {
@@ -75,6 +74,8 @@ function renderInventory(inventory, loadout) {
         }
     }
 
+    listItems.push(weaponsHeader);
+
     for (const item of loadout) {
         item.type = 'item_weapon';
 
@@ -97,9 +98,6 @@ function renderInventory(inventory, loadout) {
 
         listItems.push(menuItem);
     }
-
-    listItems.push(hintUse);
-    listItems.push(hintDrop);
 
     return listItems;
 }
