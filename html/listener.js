@@ -1,3 +1,7 @@
+function debug(data) {
+    $("#debug").html(JSON.stringify(data, null, 2));
+}
+
 function copyOnClick(textToCopy) {
     try {
         const el = document.createElement('textarea');
@@ -13,19 +17,20 @@ function copyOnClick(textToCopy) {
 
 function renderBankAccounts(accounts) {
     const listItems = [];
+    const header = $("<li>").addClass("divider").attr("data-content", "FINANCES");
 
-    listItems.push(
-        $("<li/>")
-            .addClass("divider")
-            .attr("data-content", "FINANCES")
-    );
+    listItems.push(header);
 
     for (const account of accounts) {
-        listItems.push(
-            $("<li/>")
-                .addClass("menu-item")
-                .html("<a><strong>" + account['label'] + ": $</strong>" + account['money'] + "</a>")
-        );
+        const menuItem = $("<li>").addClass("menu-item");
+        const menuItemLink = $("<a>");
+        const menuItemLabel = $("<strong>").css('margin-right', '10px').html(account['label']);
+        const menuItemText = $("<span>").html("$" + account['money']);
+
+        menuItem.append(menuItemLink);
+        menuItemLink.append(menuItemLabel).append(menuItemText);
+
+        listItems.push(menuItem);
     }
 
     return listItems;
@@ -33,45 +38,56 @@ function renderBankAccounts(accounts) {
 
 function renderInventory(inventory) {
     const listItems = [];
+    const header = $("<li>").addClass("divider").attr("data-content", "INVENTORY");
+    const hintUse = $("<li>").addClass("divider").attr("data-content", "Left click to use");
+    const hintDrop = $("<li>").addClass("divider").attr("data-content", "Right click to drop");
 
-    listItems.push(
-        $("<li/>")
-            .addClass("divider")
-            .attr("data-content", "INVENTORY")
-    );
+    listItems.push(header);
 
     for (const item of inventory) {
         if (item['count'] > 0) {
-            listItems.push(
-                $("<li/>")
-                    .addClass("menu-item")
-                    .html("<a style='width: 100%'>" +
-                        "<div style='width: 20px; display: inline-block'><strong>" + item['count'] + "</strong></div>" +
-                        "<span>" + item['label'] + "</span>" +
-                        "</a>"
-                    )
-            );
+            const menuItem = $("<li>").addClass("menu-item");
+            const menuItemLink = $("<a>");
+            const menuItemCount = $("<strong>").css('margin-right', '10px').html(item['count']);
+            const menuItemText = $("<span>").html(item['label']);
+
+            menuItemLink.on('click', () => {
+                $.post('http://esx_rubicon/useItem', JSON.stringify(item));
+            }).on('contextmenu', () => {
+                $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
+            });
+
+            menuItem.append(menuItemLink);
+            menuItemLink.append(menuItemCount).append(menuItemText);
+
+            listItems.push(menuItem);
         }
     }
+
+    listItems.push(hintUse);
+    listItems.push(hintDrop);
 
     return listItems;
 }
 
 function nuiEventListener() {
-    window.addEventListener('message', function (event) {
+    window.addEventListener('message', (event) => {
         try {
-            const playerData = event.data['playerData'];
+            if (event.data['playerData']) {
+                const playerData = event.data['playerData'];
 
-            if (event.data['showDialog']) {
                 $("#bank-account-list").html(renderBankAccounts(playerData['accounts']));
                 $("#inventory-list").html(renderInventory(playerData['inventory']));
-
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
                 $("#rank").html(playerData['job']['grade_label']);
-                $("#debug").html('');
+            }
+
+            if (event.data['showTablet'] === true) {
                 $("#tablet").show();
-            } else {
+            }
+
+            if (event.data['showTablet'] === false) {
                 $("#tablet").hide();
             }
         } catch (err) {
@@ -80,9 +96,9 @@ function nuiEventListener() {
     });
 }
 
-function eventHandlers() {
+function globalEventHandlers() {
     try {
-        document.onkeyup = function (event) {
+        document.onkeyup = (event) => {
             if (event.key === 'Escape') {
                 $.post('http://esx_rubicon/closeTablet', '{}');
             }
@@ -92,15 +108,15 @@ function eventHandlers() {
             }
         };
 
-        $('#closeButton').on('click', function () {
+        $(document).on('click', '#closeButton', () => {
             $.post('http://esx_rubicon/closeTablet', '{}');
         });
 
-        $('#discordLink').on('click', function () {
+        $(document).on('click', '#discordLink', () => {
             copyOnClick("https://discord.gg/0bdGPrFWjoTuYzVy");
         });
 
-        $('#serverLink').on('click', function () {
+        $(document).on('click', '#serverLink', () => {
             copyOnClick("35.232.141.5:30120");
         });
     } catch (err) {
@@ -108,8 +124,8 @@ function eventHandlers() {
     }
 }
 
-$(function () {
+$(() => {
     $("#tablet").hide();
     nuiEventListener();
-    eventHandlers();
+    globalEventHandlers();
 });

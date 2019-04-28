@@ -12,7 +12,7 @@ local Keys = {
 
 ESX = nil
 PlayerData = nil
-local showDialog = false
+local showTablet = false
 SetNuiFocus(false)
 
 --//////////DEBUG FUNCTION//////////--
@@ -52,7 +52,7 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         if IsControlJustReleased(0, Keys['F3']) then
-            if showDialog then
+            if showTablet then
                 TriggerEvent('tablet:off')
             else
                 TriggerEvent('tablet:on')
@@ -61,34 +61,35 @@ Citizen.CreateThread(function()
     end
 end)
 
---//////////REGISTER SLASH COMMANDS//////////--
-RegisterCommand("tablet", function()
-    if showDialog == true then
-        TriggerEvent("tablet:off")
-    else
-        TriggerEvent("tablet:on")
-    end
-end, false)
-
 --//////////NET EVENTS//////////--
 RegisterNetEvent("tablet:on")
 RegisterNetEvent("tablet:off")
+RegisterNetEvent("tablet:refresh")
 
 AddEventHandler("tablet:on", function(value)
     PlayerData = ESX.GetPlayerData()
     SetNuiFocus(true, true)
-    showDialog = true
+    showTablet = true
+
     SendNUIMessage({
-        showDialog = true,
+        showTablet = true,
         playerData = PlayerData
     })
 end)
 
 AddEventHandler("tablet:off", function(value)
     SetNuiFocus(false)
-    showDialog = false
+    showTablet = false
+
     SendNUIMessage({
-        showDialog = false
+        showTablet = false
+    })
+end)
+
+AddEventHandler("tablet:refresh", function(value)
+    PlayerData = ESX.GetPlayerData()
+    SendNUIMessage({
+        playerData = PlayerData
     })
 end)
 
@@ -100,6 +101,20 @@ end)
 
 RegisterNUICallback('closeTablet', function(data, cb)
     TriggerEvent('tablet:off')
+    cb('ok')
+end)
+
+RegisterNUICallback('useItem', function(item, cb)
+    TriggerServerEvent('esx:useItem', item.name)
+    Citizen.Wait(300)
+    TriggerEvent('tablet:refresh')
+    cb('ok')
+end)
+
+RegisterNUICallback('dropItem', function(item, cb)
+    TriggerServerEvent("esx:removeInventoryItem", 'item_standard', item.name, 1)
+    Citizen.Wait(300)
+    TriggerEvent('tablet:refresh')
     cb('ok')
 end)
 
