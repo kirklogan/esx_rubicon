@@ -13,3 +13,7 @@
     border: 2px solid black;
     border-radius: 3px;
 }
+
+#debug {
+    background: #adb6c4;
+}
