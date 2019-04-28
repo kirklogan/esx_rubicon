@@ -17,19 +17,20 @@ function copyOnClick(textToCopy) {
 
 function renderBankAccounts(accounts) {
     const listItems = [];
+    const header = $("<li>").addClass("divider").attr("data-content", "FINANCES");
 
-    listItems.push(
-        $("<li/>")
-            .addClass("divider")
-            .attr("data-content", "FINANCES")
-    );
+    listItems.push(header);
 
     for (const account of accounts) {
-        listItems.push(
-            $("<li/>")
-                .addClass("menu-item")
-                .html("<a><strong>" + account['label'] + ": $</strong>" + account['money'] + "</a>")
-        );
+        const menuItem = $("<li>").addClass("menu-item");
+        const menuItemLink = $("<a>");
+        const menuItemLabel = $("<strong>").css('margin-right', '10px').html("$" + account['label']);
+        const menuItemText = $("<span>").html(account['money']);
+
+        menuItem.append(menuItemLink);
+        menuItemLink.append(menuItemLabel).append(menuItemText);
+
+        listItems.push(menuItem);
     }
 
     return listItems;
@@ -37,17 +38,12 @@ function renderBankAccounts(accounts) {
 
 function renderInventory(inventory) {
     const listItems = [];
+    const header = $("<li>").addClass("divider").attr("data-content", "INVENTORY");
 
-    listItems.push(
-        $("<li/>")
-            .addClass("divider")
-            .attr("data-content", "INVENTORY")
-    );
+    listItems.push(header);
 
     for (const item of inventory) {
         if (item['count'] > 0) {
-            const popoverParent = $("<div>").addClass("popover popover-right");
-
             const menuItem = $("<li>").addClass("menu-item");
             const menuItemLink = $("<a>");
             const menuItemCount = $("<strong>").css('margin-right', '10px').html(item['count']);
