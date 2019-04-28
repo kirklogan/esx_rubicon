@@ -55,7 +55,7 @@ function renderInventory(inventory) {
 
             menuItemLink.on('click', () => {
                 $.post('http://esx_rubicon/useItem', JSON.stringify(item));
-            }).on('contextmenu', function () {
+            }).on('contextmenu', () => {
                 $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
             });
 
@@ -70,7 +70,7 @@ function renderInventory(inventory) {
 }
 
 function nuiEventListener() {
-    window.addEventListener('message', function (event) {
+    window.addEventListener('message', (event) => {
         try {
             if (event.data['playerData']) {
                 const playerData = event.data['playerData'];
@@ -97,7 +97,7 @@ function nuiEventListener() {
 
 function globalEventHandlers() {
     try {
-        document.onkeyup = function (event) {
+        document.onkeyup = (event) => {
             if (event.key === 'Escape') {
                 $.post('http://esx_rubicon/closeTablet', '{}');
             }
@@ -107,15 +107,15 @@ function globalEventHandlers() {
             }
         };
 
-        $(document).on('click', '#closeButton', function () {
+        $(document).on('click', '#closeButton', () => {
             $.post('http://esx_rubicon/closeTablet', '{}');
         });
 
-        $(document).on('click', '#discordLink', function () {
+        $(document).on('click', '#discordLink', () => {
             copyOnClick("https://discord.gg/0bdGPrFWjoTuYzVy");
         });
 
-        $(document).on('click', '#serverLink', function () {
+        $(document).on('click', '#serverLink', () => {
             copyOnClick("35.232.141.5:30120");
         });
     } catch (err) {
@@ -123,7 +123,7 @@ function globalEventHandlers() {
     }
 }
 
-$(function () {
+$(() => {
     $("#tablet").hide();
     nuiEventListener();
     globalEventHandlers();
