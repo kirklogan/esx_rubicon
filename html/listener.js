@@ -48,8 +48,8 @@ function renderInventory(inventory) {
         if (item['count'] > 0) {
             const popoverParent = $("<div>").addClass("popover popover-right");
 
-            const menuItem = $("<li>").addClass("menu-item");
-            const menuItemLink = $("<a>").addClass("inventoryItem").attr("data-item", item['name']);
+            const menuItem = $("<li>").addClass("menu-item inventoryItem").data('item', item['name']);
+            const menuItemLink = $("<a>");
             const menuItemCount = $("<strong>").css('margin-right', '10px').html(item['count']);
             const menuItemText = $("<span>").html(item['label']);
 
