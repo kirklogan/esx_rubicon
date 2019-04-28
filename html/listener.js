@@ -68,7 +68,6 @@ function nuiEventListener() {
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
                 $("#rank").html(playerData['job']['grade_label']);
-                $("#debug").html('');
             }
 
             if (event.data['showTablet'] === true) {
@@ -109,7 +108,7 @@ function eventHandlers() {
         });
 
         $(document).on('click', '.inventoryItem', function (event) {
-            $.post('http://esx_rubicon/javascriptError', JSON.stringify(event));
+            $("#debug").html(JSON.stringify(event.target));
             // $.post('http://esx_rubicon/useItem', JSON.stringify(item));
         });
     } catch (err) {
