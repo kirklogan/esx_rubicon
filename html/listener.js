@@ -48,8 +48,8 @@ function renderInventory(inventory) {
         if (item['count'] > 0) {
             const popoverParent = $("<div>").addClass("popover popover-right");
 
-            const menuItem = $("<li>").addClass("menu-item inventoryItem").data('item', item['name']);
-            const menuItemLink = $("<a>");
+            const menuItem = $("<li>").addClass("menu-item");
+            const menuItemLink = $("<a>").addClass("inventoryItem").data("item", item['name']);
             const menuItemCount = $("<strong>").css('margin-right', '10px').html(item['count']);
             const menuItemText = $("<span>").html(item['label']);
 
@@ -114,7 +114,7 @@ function eventHandlers() {
             copyOnClick("35.232.141.5:30120");
         });
 
-        $(document).on('click', '.inventoryItem', function (event) {
+        $(document).on('click', 'a.inventoryItem', function (event) {
             const data = $(event.target).data();
             debug(data);
             $.post('http://esx_rubicon/useItem', JSON.stringify(data.item));
