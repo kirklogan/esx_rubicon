@@ -108,7 +108,7 @@ function eventHandlers() {
         });
 
         $(document).on('click', '.inventoryItem', function (event) {
-            $("#debug").html(JSON.stringify({test: 'value'}));
+            $("#debug").html(event);
             // $.post('http://esx_rubicon/useItem', JSON.stringify(item));
         });
     } catch (err) {
