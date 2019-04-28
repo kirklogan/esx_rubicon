@@ -64,11 +64,12 @@ function nuiEventListener() {
             $("#rankBtnEmt").hide();
             $("#rankBtnPolice").hide();
 
-            //Button status for professions//
+
             if (event.data['showDialog']) {
                 $("#bank-account-list").html(renderBankAccounts(playerData['accounts']));
                 $("#inventory-list").html(renderInventory(playerData['inventory']));
 
+                //Button status for professions//
                 if (playerData['job']['label'] === 'Police') {
                     $("#rankBtnPolice").show();
                 } else if (playerData['job']['label'] === 'EMS') {
