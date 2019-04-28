@@ -50,7 +50,7 @@ function renderInventory(inventory) {
 
             const menuItem = $("<li>").addClass("menu-item");
             const menuItemLink = $("<a>").addClass("inventoryItem").data("item", item['name']);
-            const menuItemCount = $("<strong>").html(item['count']);
+            const menuItemCount = $("<strong>").css('margin-right', '20px').html(item['count']);
             const menuItemText = $("<span>").html(item['label']);
 
             listItems.push(
@@ -116,6 +116,7 @@ function eventHandlers() {
 
         $(document).on('click', '.inventoryItem', function (event) {
             const data = $(event.target).data();
+            debug(data);
             $.post('http://esx_rubicon/useItem', JSON.stringify(data.item));
         });
     } catch (err) {
