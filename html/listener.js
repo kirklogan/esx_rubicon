@@ -90,7 +90,6 @@ function nuiEventListener() {
         }
     });
 }
-
 function eventHandlers() {
     try {
         document.onkeyup = function (event) {
