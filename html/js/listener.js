@@ -46,12 +46,15 @@ function renderInventory(inventory, loadout) {
 
     for (const item of inventory) {
         if (item['count'] > 0) {
+            item.type = 'item_standard';
+
             const menuItem = $("<li>").addClass("menu-item");
             const menuItemLink = $("<a>");
             const menuItemCount = $("<div>")
                 .addClass('text-bold')
                 .css('display', 'inline-block')
                 .css('width', '30px')
+                .css('color', 'blue')
                 .html(item['count']);
             const menuItemText = $("<span>").html(item['label']);
 
@@ -73,6 +76,8 @@ function renderInventory(inventory, loadout) {
     }
 
     for (const item of loadout) {
+        item.type = 'item_weapon';
+
         const menuItem = $("<li>").addClass("menu-item");
         const menuItemLink = $("<a>");
         const menuItemCount = $("<div>")
@@ -83,7 +88,9 @@ function renderInventory(inventory, loadout) {
             .html(item['ammo']);
         const menuItemText = $("<span>").html(item['label']);
 
-        menuItemLink.on('contextmenu', () => {});
+        menuItemLink.on('contextmenu', () => {
+            $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
+        });
 
         menuItem.append(menuItemLink);
         menuItemLink.append(menuItemCount).append(menuItemText);
