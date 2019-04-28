@@ -48,7 +48,11 @@ function renderInventory(inventory) {
         if (item['count'] > 0) {
             const menuItem = $("<li>").addClass("menu-item");
             const menuItemLink = $("<a>");
-            const menuItemCount = $("<div>").addClass('text-bold').css('display', 'inline-block').html(item['count']);
+            const menuItemCount = $("<div>")
+                .addClass('text-bold')
+                .css('display', 'inline-block')
+                .css('width', '30px')
+                .html(item['count']);
             const menuItemText = $("<span>").html(item['label']);
 
             menuItemLink.on('click', () => {
