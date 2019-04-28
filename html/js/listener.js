@@ -72,34 +72,22 @@ function renderInventory(inventory, loadout) {
         }
     }
 
-    debug(loadout);
-
     for (const item of loadout) {
-        if (item['count'] > 0) {
-            const menuItem = $("<li>").addClass("menu-item");
-            const menuItemLink = $("<a>");
-            const menuItemCount = $("<div>")
-                .addClass('text-bold')
-                .css('display', 'inline-block')
-                .css('width', '20px')
-                .html(item['count']);
-            const menuItemText = $("<span>").html(item['label']);
+        const menuItem = $("<li>").addClass("menu-item");
+        const menuItemLink = $("<a>");
+        const menuItemCount = $("<div>")
+            .addClass('text-bold')
+            .css('display', 'inline-block')
+            .css('width', '20px')
+            .html(item['ammo']);
+        const menuItemText = $("<span>").html(item['label']);
 
-            menuItemLink.on('click', () => {
-                if (item['usable']) {
-                    $.post('http://esx_rubicon/useItem', JSON.stringify(item));
-                }
-            }).on('contextmenu', () => {
-                if (item['canRemove']) {
-                    $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
-                }
-            });
+        menuItemLink.on('contextmenu', () => {});
 
-            menuItem.append(menuItemLink);
-            menuItemLink.append(menuItemCount).append(menuItemText);
+        menuItem.append(menuItemLink);
+        menuItemLink.append(menuItemCount).append(menuItemText);
 
-            listItems.push(menuItem);
-        }
+        listItems.push(menuItem);
     }
 
     listItems.push(hintUse);
