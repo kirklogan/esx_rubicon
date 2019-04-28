@@ -53,12 +53,9 @@ function renderInventory(inventory) {
             const menuItemCount = $("<strong>").css('margin-right', '10px').html(item['count']);
             const menuItemText = $("<span>").html(item['label']);
 
-            menuItemLink.on('click', function (e) {
-                e.stopPropagation();
+            menuItemLink.on('click', () => {
                 $.post('http://esx_rubicon/useItem', JSON.stringify(item));
-            }).on('contextmenu', function (e) {
-                e.stopPropagation();
-                e.preventDefault();
+            }).on('contextmenu', function () {
                 $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
             });
 
