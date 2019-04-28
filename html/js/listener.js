@@ -76,10 +76,10 @@ function renderInventory(inventory, loadout) {
         const menuItem = $("<li>").addClass("menu-item");
         const menuItemLink = $("<a>");
         const menuItemCount = $("<div>")
-            .addClass('text-bold s-rounded')
+            .addClass('text-bold')
             .css('display', 'inline-block')
             .css('width', '30px')
-            .css('background-color', 'blue')
+            .css('color', 'blue')
             .html(item['ammo']);
         const menuItemText = $("<span>").html(item['label']);
 
