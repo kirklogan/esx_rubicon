@@ -49,12 +49,7 @@ function renderInventory(inventory) {
                         "<div style='width: 20px; display: inline-block'><strong>" + item['count'] + "</strong></div>" +
                         "<span>" + item['label'] + "</span>" +
                         "</a>"
-                    ).on('click', function () {
-                        if (item['usable']) {
-                            $.post('http://esx_rubicon/useItem', JSON.stringify(item));
-                        }
-                    }
-                )
+                    )
             );
         }
     }
