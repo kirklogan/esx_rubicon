@@ -39,8 +39,12 @@ function renderBankAccounts(accounts) {
 function renderInventory(inventory) {
     const listItems = [];
     const header = $("<li>").addClass("divider").attr("data-content", "INVENTORY");
+    const hintUse = $("<li>").addClass("divider").attr("data-content", "Left click to use");
+    const hintDrop = $("<li>").addClass("divider").attr("data-content", "Right click to drop");
 
     listItems.push(header);
+    listItems.push(hintUse);
+    listItems.push(hintDrop);
 
     for (const item of inventory) {
         if (item['count'] > 0) {
