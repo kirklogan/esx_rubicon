@@ -106,7 +106,7 @@ end)
 
 RegisterNUICallback('useItem', function(item, cb)
     TriggerServerEvent('esx:useItem', item.name)
-    Citizen.Wait(250)
+    Citizen.Wait(100)
     TriggerEvent('tablet:refresh')
     cb('ok')
 end)

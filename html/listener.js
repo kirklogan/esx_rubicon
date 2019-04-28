@@ -45,7 +45,7 @@ function renderInventory(inventory) {
             listItems.push(
                 $("<li/>")
                     .addClass("menu-item")
-                    .html("<a class='inventoryItem' style='width: 100%'>" +
+                    .html("<a class='inventoryItem' data-item='" + item['name'] + "'>" +
                         "<div style='width: 20px; display: inline-block'><strong>" + item['count'] + "</strong></div>" +
                         "<span>" + item['label'] + "</span>" +
                         "</a>"
@@ -111,6 +111,11 @@ function eventHandlers() {
 
         $(document).on('click', '#serverLink', function () {
             copyOnClick("35.232.141.5:30120");
+        });
+
+        $(document).on('click', '.inventoryItem', function (event) {
+            $.post('http://esx_rubicon/javascriptError', JSON.stringify(event));
+            // $.post('http://esx_rubicon/useItem', JSON.stringify(item));
         });
     } catch (err) {
         $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
