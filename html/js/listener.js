@@ -36,25 +36,35 @@ function renderBankAccounts(accounts) {
     return listItems;
 }
 
-function renderInventory(inventory) {
+function renderInventory(inventory, loadout) {
     const listItems = [];
-    const header = $("<li>").addClass("divider").attr("data-content", "INVENTORY");
-    const hintUse = $("<li>").addClass("divider").attr("data-content", "Left click to use");
-    const hintDrop = $("<li>").addClass("divider").attr("data-content", "Right click to drop");
+    const itemsHeader = $("<li>").addClass("divider").attr("data-content", "ITEMS");
+    const weaponsHeader = $("<li>").addClass("divider").attr("data-content", "WEAPONS");
 
-    listItems.push(header);
+    listItems.push(itemsHeader);
 
     for (const item of inventory) {
         if (item['count'] > 0) {
+            item.type = 'item_standard';
+
             const menuItem = $("<li>").addClass("menu-item");
             const menuItemLink = $("<a>");
-            const menuItemCount = $("<strong>").css('margin-right', '10px').html(item['count']);
+            const menuItemCount = $("<div>")
+                .addClass('text-bold')
+                .css('display', 'inline-block')
+                .css('width', '30px')
+                .css('color', 'blue')
+                .html(item['count']);
             const menuItemText = $("<span>").html(item['label']);
 
             menuItemLink.on('click', () => {
-                $.post('http://esx_rubicon/useItem', JSON.stringify(item));
+                if (item['usable']) {
+                    $.post('http://esx_rubicon/useItem', JSON.stringify(item));
+                }
             }).on('contextmenu', () => {
-                $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
+                if (item['canRemove']) {
+                    $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
+                }
             });
 
             menuItem.append(menuItemLink);
@@ -64,8 +74,30 @@ function renderInventory(inventory) {
         }
     }
 
-    listItems.push(hintUse);
-    listItems.push(hintDrop);
+    listItems.push(weaponsHeader);
+
+    for (const item of loadout) {
+        item.type = 'item_weapon';
+
+        const menuItem = $("<li>").addClass("menu-item");
+        const menuItemLink = $("<a>");
+        const menuItemCount = $("<div>")
+            .addClass('text-bold')
+            .css('display', 'inline-block')
+            .css('width', '30px')
+            .css('color', 'blue')
+            .html(item['ammo']);
+        const menuItemText = $("<span>").html(item['label']);
+
+        menuItemLink.on('contextmenu', () => {
+            $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
+        });
+
+        menuItem.append(menuItemLink);
+        menuItemLink.append(menuItemCount).append(menuItemText);
+
+        listItems.push(menuItem);
+    }
 
     return listItems;
 }
@@ -77,7 +109,7 @@ function nuiEventListener() {
                 const playerData = event.data['playerData'];
 
                 $("#bank-account-list").html(renderBankAccounts(playerData['accounts']));
-                $("#inventory-list").html(renderInventory(playerData['inventory']));
+                $("#inventory-list").html(renderInventory(playerData['inventory'], playerData['loadout']));
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
                 $("#rank").html(playerData['job']['grade_label']);

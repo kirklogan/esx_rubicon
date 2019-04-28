@@ -112,7 +112,7 @@ RegisterNUICallback('useItem', function(item, cb)
 end)
 
 RegisterNUICallback('dropItem', function(item, cb)
-    TriggerServerEvent("esx:removeInventoryItem", 'item_standard', item.name, 1)
+    TriggerServerEvent("esx:removeInventoryItem", item.type, item.name, 1)
     Citizen.Wait(300)
     TriggerEvent('tablet:refresh')
     cb('ok')
