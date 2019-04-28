@@ -43,8 +43,6 @@ function renderInventory(inventory) {
     const hintDrop = $("<li>").addClass("divider").attr("data-content", "Right click to drop");
 
     listItems.push(header);
-    listItems.push(hintUse);
-    listItems.push(hintDrop);
 
     for (const item of inventory) {
         if (item['count'] > 0) {
@@ -65,6 +63,9 @@ function renderInventory(inventory) {
             listItems.push(menuItem);
         }
     }
+
+    listItems.push(hintUse);
+    listItems.push(hintDrop);
 
     return listItems;
 }
