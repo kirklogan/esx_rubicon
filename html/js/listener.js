@@ -72,6 +72,8 @@ function renderInventory(inventory, loadout) {
         }
     }
 
+    debug(loadout);
+
     for (const item of loadout) {
         if (item['count'] > 0) {
             const menuItem = $("<li>").addClass("menu-item");
