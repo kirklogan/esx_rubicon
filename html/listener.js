@@ -54,7 +54,9 @@ function renderInventory(inventory) {
             const menuItemText = $("<span>").html(item['label']);
 
             listItems.push(
-                menuItem.append(menuItemLink.append(menuItemCount).append(menuItemText))
+                menuItem.append(
+                    menuItemLink.append(menuItemCount).append(menuItemText)
+                )
             );
         }
     }
