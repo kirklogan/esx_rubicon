@@ -54,8 +54,7 @@ function renderInventory(inventory) {
             const menuItemText = $("<span>").html(item['label']);
 
             menuItemLink.on('click', function () {
-                debug(item);
-                // $.post('http://esx_rubicon/useItem', JSON.stringify(item['name']));
+                $.post('http://esx_rubicon/useItem', JSON.stringify(item['name']));
             });
 
             menuItem.append(menuItemLink);
@@ -94,7 +93,7 @@ function nuiEventListener() {
     });
 }
 
-function eventHandlers() {
+function globalEventHandlers() {
     try {
         document.onkeyup = function (event) {
             if (event.key === 'Escape') {
@@ -125,5 +124,5 @@ function eventHandlers() {
 $(function () {
     $("#tablet").hide();
     nuiEventListener();
-    eventHandlers();
+    globalEventHandlers();
 });
