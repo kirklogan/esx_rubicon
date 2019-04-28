@@ -51,7 +51,7 @@ function renderInventory(inventory) {
             const menuItemCount = $("<div>")
                 .addClass('text-bold')
                 .css('display', 'inline-block')
-                .css('width', '30px')
+                .css('width', '20px')
                 .html(item['count']);
             const menuItemText = $("<span>").html(item['label']);
 
