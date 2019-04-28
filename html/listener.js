@@ -54,7 +54,9 @@ function renderInventory(inventory) {
             const menuItemText = $("<span>").html(item['label']);
 
             menuItemLink.on('click', function () {
-                $.post('http://esx_rubicon/useItem', JSON.stringify(item.name));
+                $.post('http://esx_rubicon/useItem', JSON.stringify(item));
+            }).on('contextmenu', function () {
+                $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
             });
 
             menuItem.append(menuItemLink);
