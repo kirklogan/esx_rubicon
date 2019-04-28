@@ -61,18 +61,10 @@ Citizen.CreateThread(function()
     end
 end)
 
---//////////REGISTER SLASH COMMANDS//////////--
-RegisterCommand("tablet", function()
-    if showTablet == true then
-        TriggerEvent("tablet:off")
-    else
-        TriggerEvent("tablet:on")
-    end
-end, false)
-
 --//////////NET EVENTS//////////--
 RegisterNetEvent("tablet:on")
 RegisterNetEvent("tablet:off")
+RegisterNetEvent("tablet:refresh")
 
 AddEventHandler("tablet:on", function(value)
     PlayerData = ESX.GetPlayerData()
@@ -94,6 +86,13 @@ AddEventHandler("tablet:off", function(value)
     })
 end)
 
+AddEventHandler("tablet:refresh", function(value)
+    PlayerData = ESX.GetPlayerData()
+    SendNUIMessage({
+        playerData = PlayerData
+    })
+end)
+
 --//////////NUI CALLBACKS (THESE ARE ACCESSIBLE FROM JAVASCRIPT)//////////--
 RegisterNUICallback('openTablet', function(data, cb)
     TriggerEvent('tablet:on')
@@ -108,7 +107,7 @@ end)
 RegisterNUICallback('useItem', function(item, cb)
     TriggerServerEvent('esx:useItem', item.name)
     Citizen.Wait(250)
-    TriggerEvent('tablet:on')
+    TriggerEvent('tablet:refresh')
     cb('ok')
 end)
 

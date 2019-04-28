@@ -101,15 +101,15 @@ function eventHandlers() {
             }
         };
 
-        $('#closeButton').on('click', function () {
+        $(document).on('click', '#closeButton', function () {
             $.post('http://esx_rubicon/closeTablet', '{}');
         });
 
-        $('#discordLink').on('click', function () {
+        $(document).on('click', '#discordLink', function () {
             copyOnClick("https://discord.gg/0bdGPrFWjoTuYzVy");
         });
 
-        $('#serverLink').on('click', function () {
+        $(document).on('click', '#serverLink', function () {
             copyOnClick("35.232.141.5:30120");
         });
     } catch (err) {
