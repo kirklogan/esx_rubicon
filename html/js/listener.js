@@ -36,7 +36,7 @@ function renderBankAccounts(accounts) {
     return listItems;
 }
 
-function renderInventory(inventory) {
+function renderInventory(inventory, loadout) {
     const listItems = [];
     const header = $("<li>").addClass("divider").attr("data-content", "INVENTORY");
     const hintUse = $("<li>").addClass("divider").attr("data-content", "Left click to use");
@@ -56,9 +56,41 @@ function renderInventory(inventory) {
             const menuItemText = $("<span>").html(item['label']);
 
             menuItemLink.on('click', () => {
-                $.post('http://esx_rubicon/useItem', JSON.stringify(item));
+                if (item['usable']) {
+                    $.post('http://esx_rubicon/useItem', JSON.stringify(item));
+                }
             }).on('contextmenu', () => {
-                $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
+                if (item['canRemove']) {
+                    $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
+                }
+            });
+
+            menuItem.append(menuItemLink);
+            menuItemLink.append(menuItemCount).append(menuItemText);
+
+            listItems.push(menuItem);
+        }
+    }
+
+    for (const item of loadout) {
+        if (item['count'] > 0) {
+            const menuItem = $("<li>").addClass("menu-item");
+            const menuItemLink = $("<a>");
+            const menuItemCount = $("<div>")
+                .addClass('text-bold')
+                .css('display', 'inline-block')
+                .css('width', '20px')
+                .html(item['count']);
+            const menuItemText = $("<span>").html(item['label']);
+
+            menuItemLink.on('click', () => {
+                if (item['usable']) {
+                    $.post('http://esx_rubicon/useItem', JSON.stringify(item));
+                }
+            }).on('contextmenu', () => {
+                if (item['canRemove']) {
+                    $.post('http://esx_rubicon/dropItem', JSON.stringify(item));
+                }
             });
 
             menuItem.append(menuItemLink);
@@ -81,7 +113,7 @@ function nuiEventListener() {
                 const playerData = event.data['playerData'];
 
                 $("#bank-account-list").html(renderBankAccounts(playerData['accounts']));
-                $("#inventory-list").html(renderInventory(playerData['inventory']));
+                $("#inventory-list").html(renderInventory(playerData['inventory'], playerData['loadout']));
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
                 $("#rank").html(playerData['job']['grade_label']);
