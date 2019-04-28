@@ -17,5 +17,9 @@ files {
     'html/css/main.css',
 	'html/css/spectre.css',
 	'html/css/spectre-icons.css',
-    'html/js/listener.js'
+    'html/js/listener.js',
+
+    'html/css/uikit.css',
+    'html/js/uikit.js',
+    'html/js/uikit-icons.js',
 }
