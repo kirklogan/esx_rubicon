@@ -49,15 +49,19 @@ function renderInventory(inventory) {
             const popoverParent = $("<div>").addClass("popover popover-right");
 
             const menuItem = $("<li>").addClass("menu-item");
-            const menuItemLink = $("<a>").addClass("inventoryItem").data("item", item['name']);
+            const menuItemLink = $("<a>");
             const menuItemCount = $("<strong>").css('margin-right', '10px').html(item['count']);
             const menuItemText = $("<span>").html(item['label']);
 
-            listItems.push(
-                menuItem.append(
-                    menuItemLink.append(menuItemCount).append(menuItemText)
-                )
-            );
+            menuItemLink.on('click', function () {
+                debug(item);
+                // $.post('http://esx_rubicon/useItem', JSON.stringify(item['name']));
+            });
+
+            menuItem.append(menuItemLink);
+            menuItemLink.append(menuItemCount).append(menuItemText);
+
+            listItems.push(menuItem);
         }
     }
 
@@ -112,12 +116,6 @@ function eventHandlers() {
 
         $(document).on('click', '#serverLink', function () {
             copyOnClick("35.232.141.5:30120");
-        });
-
-        $(document).on('click', 'a.inventoryItem', function (event) {
-            const data = $(event.target).data();
-            debug(data);
-            $.post('http://esx_rubicon/useItem', JSON.stringify(data.item));
         });
     } catch (err) {
         $.post('http://esx_rubicon/javascriptError', JSON.stringify(err.message));
