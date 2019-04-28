@@ -24,8 +24,8 @@ function renderBankAccounts(accounts) {
     for (const account of accounts) {
         const menuItem = $("<li>").addClass("menu-item");
         const menuItemLink = $("<a>");
-        const menuItemLabel = $("<strong>").css('margin-right', '10px').html("$" + account['label']);
-        const menuItemText = $("<span>").html(account['money']);
+        const menuItemLabel = $("<strong>").css('margin-right', '10px').html(account['label']);
+        const menuItemText = $("<span>").html("$" + account['money']);
 
         menuItem.append(menuItemLink);
         menuItemLink.append(menuItemLabel).append(menuItemText);
