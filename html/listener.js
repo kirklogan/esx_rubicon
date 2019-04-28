@@ -108,7 +108,8 @@ function eventHandlers() {
         });
 
         $(document).on('click', '.inventoryItem', function (event) {
-            $("#debug").html(JSON.stringify(event.target.attributes, null, 2));
+            const target = $( event.target );
+            $("#debug").html(JSON.stringify(target.data(), null, 2));
             // $.post('http://esx_rubicon/useItem', JSON.stringify(item));
         });
     } catch (err) {
