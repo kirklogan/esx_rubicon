@@ -53,8 +53,6 @@ function renderInventory(inventory) {
                         if (item['usable']) {
                             $.post('http://esx_rubicon/useItem', JSON.stringify(item));
                         }
-                    }).on('contextmenu', function () {
-                        $("#testModal").show();
                     }
                 )
             );
@@ -67,18 +65,22 @@ function renderInventory(inventory) {
 function nuiEventListener() {
     window.addEventListener('message', function (event) {
         try {
-            const playerData = event.data['playerData'];
+            if (event.data['playerData']) {
+                const playerData = event.data['playerData'];
 
-            if (event.data['showDialog']) {
                 $("#bank-account-list").html(renderBankAccounts(playerData['accounts']));
                 $("#inventory-list").html(renderInventory(playerData['inventory']));
-
                 $("#salary").html(playerData['job']['grade_salary']);
                 $("#job").html(playerData['job']['label']);
                 $("#rank").html(playerData['job']['grade_label']);
                 $("#debug").html('');
+            }
+
+            if (event.data['showTablet'] === true) {
                 $("#tablet").show();
-            } else {
+            }
+
+            if (event.data['showTablet'] === false) {
                 $("#tablet").hide();
             }
         } catch (err) {

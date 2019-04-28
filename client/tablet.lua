@@ -12,7 +12,7 @@ local Keys = {
 
 ESX = nil
 PlayerData = nil
-local showDialog = false
+local showTablet = false
 SetNuiFocus(false)
 
 --//////////DEBUG FUNCTION//////////--
@@ -52,7 +52,7 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         if IsControlJustReleased(0, Keys['F3']) then
-            if showDialog then
+            if showTablet then
                 TriggerEvent('tablet:off')
             else
                 TriggerEvent('tablet:on')
@@ -63,7 +63,7 @@ end)
 
 --//////////REGISTER SLASH COMMANDS//////////--
 RegisterCommand("tablet", function()
-    if showDialog == true then
+    if showTablet == true then
         TriggerEvent("tablet:off")
     else
         TriggerEvent("tablet:on")
@@ -77,18 +77,20 @@ RegisterNetEvent("tablet:off")
 AddEventHandler("tablet:on", function(value)
     PlayerData = ESX.GetPlayerData()
     SetNuiFocus(true, true)
-    showDialog = true
+    showTablet = true
+
     SendNUIMessage({
-        showDialog = true,
+        showTablet = true,
         playerData = PlayerData
     })
 end)
 
 AddEventHandler("tablet:off", function(value)
     SetNuiFocus(false)
-    showDialog = false
+    showTablet = false
+
     SendNUIMessage({
-        showDialog = false
+        showTablet = false
     })
 end)
 
